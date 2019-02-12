@@ -19,7 +19,7 @@ public class Card {
   }
 
   //Acesor Method
-  public String getCardDescription() {
+  public String showCardDescription() {
     String cardDescription = (cardName + ": "+"Energy Cost: " + energyCost);
     if (damageValue > 0) {
       cardDescription += (", Deals "+damageValue+" damage");

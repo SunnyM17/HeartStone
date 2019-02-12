@@ -4,7 +4,7 @@ public class Deck {
 
 
   // Instance Variable
-  private ArrayList<Card> masterDeck = new ArrayList<Card>();
+  private ArrayList<Card> deck = new ArrayList<Card>();
 
   //Constructors
   public Deck() {
@@ -12,7 +12,7 @@ public class Deck {
   }
   public Deck(ArrayList<Card> deck)
   {
-    this.masterDeck = deck;
+    this.deck = deck;
   }
 
 }

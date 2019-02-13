@@ -10,10 +10,12 @@ public class Player
     private Deck playerDeck;
 
     startingDeck = new Deck();
-    for (int i = 1; i == 5; x++);
+    for (int i = 1; i <= 5; x++)
+    {
       startingDeck.add("Slash", 1, 6, 0, 0);
       startingDeck.add("Guard", 1, 0, 5, 0);
-
+    }
+        
     public Player(String PlayerName)
     {
         this.PlayerName = PlayerName;

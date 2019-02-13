@@ -12,8 +12,8 @@ public class Player
     startingDeck = new Deck();
     for (int i = 1; i <= 5; x++)
     {
-      startingDeck.add("Slash", 1, 6, 0, 0);
-      startingDeck.add("Guard", 1, 0, 5, 0);
+      startingDeck.deck.add(new Card("Slash", 1, 6, 0, 0));
+      startingDeck.deck.add(new Card("Guard", 1, 0, 5, 0));
     }
         
     public Player(String PlayerName)

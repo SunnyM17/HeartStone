@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 public class Player
 {
     //instance variables
@@ -16,15 +15,15 @@ public class Player
         this.health = health;
         this.energy = energy;
     }
+    
     public int alt_health(int amount)
     {
-        return health -= amount;
-        
+        return health -= amount;     
     }
     
-    public int alt_energy()
+    public int alt_energy(int amount)
     {
-        return energy -= Card.energyCost();
+        return energy -= amount;
     }
     
     public int alt_shield(int amount)

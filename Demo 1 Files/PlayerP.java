@@ -17,8 +17,8 @@ public class PlayerP
         this.maxEnergy = 3;
         this.remainingEnergy = 3;
         this.block = 0;
-        startingDeck = new Deck();
-        for (int i = 1; i <= 5; i++)
+        Deck startingDeck = new Deck();
+        for (int x = 1; x <= 5; x++)
         {
           startingDeck.deck.add(new Card("Slash", 1, 6, 0, 0));
           startingDeck.deck.add(new Card("Guard", 1, 0, 5, 0));

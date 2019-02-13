@@ -15,8 +15,32 @@ public class Card {
     this.blockValue = blockValue;
     this.drawValue = drawValue;
   }
+  
+  public String getCardName()
+  {
+    return cardName;
+  }
 
-  //Acesor Method
+  public int getEnergyCost()
+  {
+    return energyCost;
+  }
+
+  public int getDamageValue()
+  {
+    return damageValue;
+  }
+
+  public int getBlockValue()
+  {
+    return blockValue;
+  }  
+  
+  public int getDrawValue()
+  {
+    return drawValue;
+  }
+  //Accessor Method
   public String showCardDescription() {
     String cardDescription = (cardName + ": "+"Energy Cost: " + energyCost);
     if (damageValue > 0) {

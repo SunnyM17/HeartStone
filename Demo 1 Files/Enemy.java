@@ -22,17 +22,17 @@ public class Enemy {
 
    //Accesor methods
    public String getEnemyInformation() {
-     return (enemyName + ": "+remainingHealth+"/"+maxHealth+", "+block+" block")
+        return (enemyName + ": "+remainingHealth+"/"+maxHealth+", "+block+" block");
    }
 
    //Mutator Methods
    void altHealth(int amount) {
-     remainingHealth -= amount;
+        remainingHealth -= amount;
    }
    void altEnergy(int amount) {
-     remainingEnergy -= amount;
+        remainingEnergy -= amount;
    }
    void altBlock(int amount) {
-     block -= amount;
+        block -= amount;
    }
 }

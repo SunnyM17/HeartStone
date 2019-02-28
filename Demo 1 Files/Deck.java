@@ -33,6 +33,10 @@ public class Deck {
     }
     return null;
   }
+  public Card getCard(int cardToGet)
+  {
+    return this.deck.get(cardToGet);
+  }
   
   public ArrayList getDeckList()
   {

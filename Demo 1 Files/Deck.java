@@ -1,45 +1,60 @@
-import java.util.ArrayList;
-public class Deck {
-  // Instance Variable
-  private ArrayList<Card> deck = new ArrayList<Card>();;
+public class Card {
+
+  //Instance Variables
+  private String cardName;
+  private int energyCost;
+  private int damageValue;
+  private int blockValue;
+  private int drawValue;
 
   //Constructors
-  public Deck(){
-      
+  public Card (String cardName, int energyCost, int damageValue, int blockValue, int drawValue) {
+    this.cardName = cardName;
+    this.energyCost = energyCost;
+    this.damageValue = damageValue;
+    this.blockValue = blockValue;
+    this.drawValue = drawValue;
   }
   
-  public Deck(Deck deck)
+  public String getCardName()
   {
-      this.deck = deck.deck;
-  } 
+    return cardName;
+  }
+
+  public int getEnergyCost()
+  {
+    return energyCost;
+  }
+
+  public int getDamageValue()
+  {
+    return damageValue;
+  }
+
+  public int getBlockValue()
+  {
+    return blockValue;
+  }  
   
-  public void addCard(Card card, int amount)
+  public int getDrawValue()
   {
-    for(int i = 0; i < amount; i++)
-    {
-        deck.add(card);
+    return drawValue;
+  }
+  //Accessor Method
+  public String showCardDescription() {
+    String cardDescription = (cardName + ": "+"Energy Cost: " + energyCost);
+    if (damageValue > 0) {
+      cardDescription += (", Deals "+damageValue+" damage");
     }
-  }
-  
-  public Card getCard(String cardToGet)
-  {
-    for(int i = 0; i < deck.size(); i++)
-    {
-        if (cardToGet.equals(deck.get(i).getCardName()))
-        {
-            return deck.get(i);
-            
-        }
+    if (blockValue > 0) {
+      cardDescription += (", Blocks "+blockValue+" damage");
     }
-    return null;
-  }
-  public Card getCard(int cardToGet)
-  {
-    return this.deck.get(cardToGet);
-  }
-  
-  public ArrayList getDeckList()
-  {
-      return this.deck;
+    if (drawValue == 1) {
+      cardDescription += (", Draws "+drawValue+" card");
+    } else if (drawValue > 0) {
+      cardDescription += (", Draws "+drawValue+" cards");
+    }
+    cardDescription += ".";
+    return cardDescription;
   }
 }

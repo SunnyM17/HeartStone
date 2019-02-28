@@ -26,6 +26,11 @@ public class Enemy {
    }
 
    //Mutator Methods
+   public void setBlock(int amount)
+   {
+       this.block = amount;
+   }
+   
    public void altHealth(int amount) {
         remainingHealth -= amount;
    }

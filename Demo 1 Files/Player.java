@@ -7,8 +7,18 @@ public class Player
     private int remainingHealth;
     private int remainingEnergy;
     private int block;
-    private Deck playerDeck;
+    private Deck playerDeck = new Deck();
 
+    public Player()
+    {
+        this.maxHealth = 80;
+        this.remainingHealth = 80;
+        this.maxEnergy = 3;
+        this.remainingEnergy = 3;
+        this.block = 0;
+        playerDeck.addCard(new Card("SLASH", 1, 6, 0, 0),5);
+        playerDeck.addCard(new Card("GUARD", 1, 0, 5, 0),5);
+    }
     public Player(String playerName)
     {
         this.playerName = playerName;
@@ -17,8 +27,8 @@ public class Player
         this.maxEnergy = 3;
         this.remainingEnergy = 3;
         this.block = 0;
-        playerDeck.addCard(new Card("SLASH", 1, 6, 0, 0),5);
-        playerDeck.addCard(new Card("GUARD", 1, 0, 5, 0),5);
+        this.playerDeck.addCard(new Card("SLASH", 1, 6, 0, 0),5);
+        this.playerDeck.addCard(new Card("GUARD", 1, 0, 5, 0),5);
     }
     void altHealth(int amount)
     {
@@ -35,6 +45,10 @@ public class Player
         block -= amount;
     }
     
+    public void setBlock(int amount)
+    {
+        this.block = amount;
+    }
     public int getRemainingHealth()
     {
         return remainingHealth;

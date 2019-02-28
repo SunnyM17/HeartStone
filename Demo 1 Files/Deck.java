@@ -1,60 +1,41 @@
-public class Card {
-
-  //Instance Variables
-  private String cardName;
-  private int energyCost;
-  private int damageValue;
-  private int blockValue;
-  private int drawValue;
+import java.util.ArrayList;
+public class Deck {
+  // Instance Variable
+  private ArrayList<Card> deck;
 
   //Constructors
-  public Card (String cardName, int energyCost, int damageValue, int blockValue, int drawValue) {
-    this.cardName = cardName;
-    this.energyCost = energyCost;
-    this.damageValue = damageValue;
-    this.blockValue = blockValue;
-    this.drawValue = drawValue;
+  public Deck(){
+    deck = new ArrayList<Card>();
+  }
+
+  
+  public void addCard(Card card, int amount)
+  {
+    for(int i = 0; i < amount; i++)
+    {
+        deck.add(card);
+    }
   }
   
-  public String getCardName()
+  public Card getCard(String cardToGet)
   {
-    return cardName;
+    for(int i = 0; i < deck.size(); i++)
+    {
+        if (cardToGet.equals(deck.get(i).getCardName()))
+        {
+            return deck.get(i);
+            
+        }
+    }
+    return null;
   }
-
-  public int getEnergyCost()
+  public Card getCard(int cardToGet)
   {
-    return energyCost;
+    return this.deck.get(cardToGet);
   }
-
-  public int getDamageValue()
-  {
-    return damageValue;
-  }
-
-  public int getBlockValue()
-  {
-    return blockValue;
-  }  
   
-  public int getDrawValue()
+  public ArrayList getDeckList()
   {
-    return drawValue;
-  }
-  //Accessor Method
-  public String showCardDescription() {
-    String cardDescription = (cardName + ": "+"Energy Cost: " + energyCost);
-    if (damageValue > 0) {
-      cardDescription += (", Deals "+damageValue+" damage");
-    }
-    if (blockValue > 0) {
-      cardDescription += (", Blocks "+blockValue+" damage");
-    }
-    if (drawValue == 1) {
-      cardDescription += (", Draws "+drawValue+" card");
-    } else if (drawValue > 0) {
-      cardDescription += (", Draws "+drawValue+" cards");
-    }
-    cardDescription += ".";
-    return cardDescription;
+      return this.deck;
   }
 }

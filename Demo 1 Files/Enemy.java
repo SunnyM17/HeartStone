@@ -10,14 +10,14 @@ public class Enemy {
    private Deck enemyDeck;
 
    //Constructors
-   public Enemy (String enemyName, int maxHealth, int maxEnergy, Deck enemyDeck){
+   public Enemy (String enemyName, int maxHealth, int maxEnergy){
      this.enemyName = enemyName;
      this.maxHealth = maxHealth;
      this.remainingHealth = maxHealth;
      this.maxEnergy = maxEnergy;
      this.remainingEnergy = maxEnergy;
      this.block = 0;
-     this.enemyDeck = new enemyDeck();
+     this.enemyDeck = new Deck();
    }
 
    //Accesor methods

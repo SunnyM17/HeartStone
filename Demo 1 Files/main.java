@@ -5,8 +5,13 @@ public class main
     public static boolean Battle(Player player, Enemy enemy)
     {
       //Ongoing Decks that will be altered as battle goes on
-      Deck ongDeckP =  new Deck(player.getDeck());
-      Deck ongDeckE = new Deck(enemy.getDeck());
+      Deck ongDeckP =  new Deck();
+      Deck ongDeckE = new Deck();
+      for (int boi = 0; boi < player.getDeck().getDeckList().size(); boi++)
+      {
+            ongDeckP.addCard(player.getDeck().getCard(boi),1);
+            ongDeckE.addCard(enemy.getDeck().getCard(boi),1);
+      }
 
       //The cards in the hand of each combatant
       Deck playerHand = new Deck();
@@ -25,8 +30,8 @@ public class main
         System.out.println(enemy.getEnemyInformation());
 
         //Step 1: Refresh Energy of each combatant
-        Player.block = 0
-        Enemy.block = 0
+        player.setBlock(0);
+        enemy.setBlock(0);
         player.setMaxEnergy(player.getMaxEnergy());
         enemy.setMaxEnergy(enemy.getMaxEnergy());
 
@@ -38,7 +43,7 @@ public class main
           {
             for (int i = 0; i < playerDiscard.getDeckList().size(); i++)
             { 
-                ongDeckP.addCard((playerDiscard.getCard(i),1);
+                ongDeckP.addCard((playerDiscard.getCard(i)),1);
                 playerDiscard.getDeckList().remove(i);
               
             }
@@ -69,8 +74,12 @@ public class main
          {
             Random rand = new Random();
             int cardToPlay = rand.nextInt(enemyHand.getDeckList().size());
-            
-            System.out.println("Enemy played "+(enemyHand.getCard(cardToPlay).showCardDescription()));
+            if (player.getRemainingHealth() > 0)
+            {
+                System.out.println("Enemy played "+(enemyHand.getCard(cardToPlay).showCardDescription()));
+                player.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
+                System.out.println(player.getPlayerInformation());  
+            }
          }
          return true;
          
@@ -119,9 +128,9 @@ public class main
         Player Player1 = new Player(playerName);
         
         boolean dead = false;
-        while (!dead)
+        while (Player1.getRemainingHealth() > 0)
         {
-            ; 
+            Battle(Player1, Mage); 
         }
     }
 }

@@ -38,7 +38,7 @@ public class main
           {
             for (int i = 0; i < playerDiscard.getDeckList().size(); i++)
             { 
-                ongDeckP.addCard((playerDiscard.getDeckList().get(i)),1);
+                ongDeckP.addCard((playerDiscard.getCard(i),1);
                 playerDiscard.getDeckList().remove(i);
               
             }
@@ -47,7 +47,7 @@ public class main
           {
             for (int z = 0; z < enemyDiscard.getDeckList().size(); z++)
             {
-                ongDeckE.addCard((enemyDiscard.getDeckList().get(z)),1);
+                ongDeckE.addCard((enemyDiscard.getCard(z)),1);
                 enemyDiscard.getDeckList().remove(z);
             }
           }
@@ -58,10 +58,10 @@ public class main
           int randomDrawE = rand.nextInt(ongDeckE.getDeckList().size());
 
           //Adds said cards to respective combatants' hands
-          playerHand.addCard((ongDeckP.getDeckList().get(randomDrawP)), 1);
+          playerHand.addCard((ongDeckP.getCard(randomDrawP)), 1);
           ongDeckP.getDeckList().remove(randomDrawP);
 
-          enemyHand.addCard((ongDeckE.getDeckList().get(randomDrawE)), 1);
+          enemyHand.addCard((ongDeckE.getCard(randomDrawE)), 1);
           ongDeckE.getDeckList().remove(randomDrawE);
         }
         //Step 3: Enemy randomly chooses cards from hand to play, while energy is available
@@ -70,7 +70,7 @@ public class main
             Random rand = new Random();
             int cardToPlay = rand.nextInt(enemyHand.getDeckList().size());
             
-            System.out.println("Enemy played "+(enemyHand.getDeckList().get(cardToPlay).showCardDescription()));
+            System.out.println("Enemy played "+(enemyHand.getCard(cardToPlay).showCardDescription()));
          }
          return true;
          

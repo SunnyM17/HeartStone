@@ -17,7 +17,7 @@ public class Enemy {
      this.maxEnergy = maxEnergy;
      this.remainingEnergy = maxEnergy;
      this.block = 0;
-     this.enemyDeck = enemyDeck;
+     this.enemyDeck = new enemyDeck();
    }
 
    //Accesor methods

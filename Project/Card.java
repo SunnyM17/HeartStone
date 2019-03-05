@@ -5,14 +5,18 @@ public class Card {
   private int energyCost;
   private int damageValue;
   private int blockValue;
+  private int drawValue;
 
   //Constructors
-  public Card (String cardName, int energyCost, int damageValue, int blockValue) {
+  public Card (String cardName, int energyCost, int damageValue, int blockValue, int drawValue) {
     setCardName(cardName);
     setEnergyCost(energyCost);
     setDamageValue(damageValue);
     setBlockValue(blockValue);
+    setDrawValue(drawValue);
   }
+
+  // Setter Methods
   public void setCardName(String cardName)
   {
     this.cardName = cardName;
@@ -28,6 +32,10 @@ public class Card {
   public void setBlockValue(int blockValue)
   {
     this.blockValue = blockValue;
+  }
+  public void setDrawValue(int drawValue)
+  {
+    this.drawValue = drawValue;
   }
   
   //Accesor Methods

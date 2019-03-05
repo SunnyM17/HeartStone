@@ -79,6 +79,6 @@ public class Player
         return playerDeck;
     }
     public String getPlayerInformation() {
-        return (playerName + ": "+remainingHealth+"/"+maxHealth+", "+block+"block, "+remainingEnergy+"/"+maxEnergy);
+        return (playerName + ": "+remainingHealth+"/"+maxHealth+", "+block+" block, "+remainingEnergy+"/"+maxEnergy);
     }
 }

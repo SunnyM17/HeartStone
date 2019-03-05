@@ -128,9 +128,11 @@ public class main
         Player Player1 = new Player(playerName);
         
         boolean dead = false;
-        while (Player1.getRemainingHealth() > 0)
+        while (dead != true)
         {
-            Battle(Player1, Mage); 
+            dead = battle(Player1, Mage); 
         }
+        //If dead = true, sorry you lost
+        //If dead = false, congarts you won 😊
     }
 }

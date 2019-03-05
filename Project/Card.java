@@ -4,18 +4,15 @@ public class Card {
   private String cardName;
   private int energyCost;
   private int damageValue;
-  private int blockValue;
-  private int drawValue;
 
   //Constructors
-  public Card (String cardName, int energyCost, int damageValue, int blockValue, int drawValue) {
+  public Card (String cardName, int energyCost, int damageValue) {
     this.cardName = cardName;
     this.energyCost = energyCost;
     this.damageValue = damageValue;
-    this.blockValue = blockValue;
-    this.drawValue = drawValue;
   }
   
+  //Accesor Methods
   public String getCardName()
   {
     return cardName;
@@ -30,17 +27,7 @@ public class Card {
   {
     return damageValue;
   }
-
-  public int getBlockValue()
-  {
-    return blockValue;
-  }  
   
-  public int getDrawValue()
-  {
-    return drawValue;
-  }
-  //Accessor Method
   public String showCardDescription() {
     String cardDescription = (cardName + ": "+"Energy Cost: " + energyCost);
     if (damageValue > 0) {
@@ -49,11 +36,7 @@ public class Card {
     if (blockValue > 0) {
       cardDescription += (", Blocks "+blockValue+" damage");
     }
-    if (drawValue == 1) {
-      cardDescription += (", Draws "+drawValue+" card");
-    } else if (drawValue > 0) {
-      cardDescription += (", Draws "+drawValue+" cards");
-    }
+
     cardDescription += ".";
     return cardDescription;
   }

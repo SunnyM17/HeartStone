@@ -48,8 +48,7 @@ public class main
         boolean dead = false;
         while (dead != true)
         {
-            Battle boi = new Battle();
-            boi.battle(Player1, Mage);
+            dead = battle(Player1, Mage);
         }
         //If dead = true, sorry you lost
         //If dead = false, congarts you won 😊

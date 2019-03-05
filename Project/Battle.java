@@ -6,10 +6,10 @@ public class Battle
       //Ongoing Decks that will be altered as battle goes on
       Deck ongDeckP =  new Deck();
       Deck ongDeckE = new Deck();
-      for (int boi = 0; boi < player.getDeck().getDeckList().size(); boi++)
+      for (int i = 0; boi < player.getDeck().getDeckList().size(); i++)
       {
-            ongDeckP.addCard(player.getDeck().getCard(boi),1);
-            ongDeckE.addCard(enemy.getDeck().getCard(boi),1);
+            ongDeckP.addCard(player.getDeck().getCard(i),1);
+            ongDeckE.addCard(enemy.getDeck().getCard(i),1);
       }
 
       //The cards in the hand of each combatant
@@ -21,23 +21,22 @@ public class Battle
       Deck enemyDiscard = new Deck();
 
       //The result of the battle relative to the player - returned at the end and is an exit condition in the while loop
-      boolean victory = false;
+      boolean dead  = false;
 
       //---------------------
+
       //Battle Start
       while ((victory != false) && (player.getRemainingHealth() > 0 )); //While the player hasn't lost or won, the battle goes on
 
-        //Step 0: Announce relevant stats for each combatant
-        System.out.println(player.getPlayerInformation());
-        System.out.println(enemy.getEnemyInformation());
-
-        //Step 1: Refresh Energy of each combatant
-        player.setBlock(0);
-        enemy.setBlock(0);
+        //1: Refresh Energy of each combatant
         player.setMaxEnergy(player.getMaxEnergy());
         enemy.setMaxEnergy(enemy.getMaxEnergy());
 
-        //Step 2: Each combatant draws 5 cards from their deck
+        //2: Set each conbatant's Shield to 0
+        player.setBlock(0);
+        enemy.setBlock(0);s
+
+        //3: Each combatant draws 5 cards from their deck
         for (int x = 0; x < 6; x++)
         {
           //If any of the decks are empty while attempting to draw, shuffles the discard pile into the deck

@@ -6,10 +6,10 @@ public class Battle
       //Ongoing Decks that will be altered as battle goes on
       Deck ongDeckP =  new Deck();
       Deck ongDeckE = new Deck();
-      for (int i = 0; boi < player.getDeck().getDeckList().size(); i++)
+      for (int x = 0; x < player.getDeck().getDeckList().size(); x++)
       {
-            ongDeckP.addCard(player.getDeck().getCard(i),1);
-            ongDeckE.addCard(enemy.getDeck().getCard(i),1);
+            ongDeckP.addCard(player.getDeck().getCard(x),1);
+            ongDeckE.addCard(enemy.getDeck().getCard(x),1);
       }
 
       //The cards in the hand of each combatant

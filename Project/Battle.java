@@ -1,5 +1,5 @@
 import java.util.Random;
-public class Battle 
+public class Battle
 {
     public boolean battle(Player player, Enemy enemy)
     {
@@ -22,6 +22,9 @@ public class Battle
 
       //The result of the battle relative to the player - returned at the end and is an exit condition in the while loop
       boolean victory = false;
+
+      //---------------------
+      //Battle Start
       while ((victory != false) && (player.getRemainingHealth() > 0 )); //While the player hasn't lost or won, the battle goes on
 
         //Step 0: Announce relevant stats for each combatant
@@ -34,20 +37,20 @@ public class Battle
         player.setMaxEnergy(player.getMaxEnergy());
         enemy.setMaxEnergy(enemy.getMaxEnergy());
 
-        //Step 2: Each combatant draws 5 cards from their deck 
+        //Step 2: Each combatant draws 5 cards from their deck
         for (int x = 0; x < 6; x++)
         {
           //If any of the decks are empty while attempting to draw, shuffles the discard pile into the deck
           if (ongDeckP.getDeckList().size() == 0)
           {
             for (int i = 0; i < playerDiscard.getDeckList().size(); i++)
-            { 
+            {
                 ongDeckP.addCard((playerDiscard.getCard(i)),1);
                 playerDiscard.getDeckList().remove(i);
-              
+
             }
           }
-          if (ongDeckE.getDeckList().size() == 0) 
+          if (ongDeckE.getDeckList().size() == 0)
           {
             for (int z = 0; z < enemyDiscard.getDeckList().size(); z++)
             {
@@ -77,9 +80,9 @@ public class Battle
             {
                 System.out.println("Enemy played "+(enemyHand.getCard(cardToPlay).showCardDescription()));
                 player.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
-                System.out.println(player.getPlayerInformation());  
+                System.out.println(player.getPlayerInformation());
             }
-         }  
+         }
          return true;
     }
 }

@@ -17,7 +17,7 @@ public class Card {
   private int drawValue;
 
 
-  //Constructors
+  //Constructor
 
   /**
   * This method creates a Card object to store the card name, energy

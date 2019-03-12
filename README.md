@@ -1,2 +1,2 @@
-javac *.java
-java main
+javac *.java;
+java main;

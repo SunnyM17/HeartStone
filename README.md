@@ -1,1 +1,2 @@
-# Project
+javac *.java
+java main

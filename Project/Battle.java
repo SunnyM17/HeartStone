@@ -7,7 +7,7 @@ import javax.sound.sampled.BooleanControl;
 
 public class Battle 
 {
-    public boolean Battle(Player player, Enemy enemy)
+    public boolean battle(Player player, Enemy enemy)
     {
       int noCard = 0;
       int blockTurnP = 0;
@@ -135,7 +135,7 @@ public class Battle
             }
             else
             {
-                System.out.println("YOU HAVE BEEN SLAIN BY A " + enemy.getName()+ " what a noob");
+                System.out.println("You have been slayin by " + enemy.getName()+ ". What a N00B!");
                 victory = true;
                 break;
             }
@@ -168,7 +168,7 @@ public class Battle
                 System.out.println("NOT ENOUGH ENERGY");
                 card = x.nextLine();
             }
-            System.out.println("YOU played "+(playerHand.getCard(card).showCardDescription()));
+            System.out.println("You played "+(playerHand.getCard(card).showCardDescription()));
             playerDiscard.addCard(playerHand.getCard(card), 1);
             player.altEnergy(playerHand.getCard(card).getEnergyCost());
             player.altBlock(playerHand.getCard(card).getBlockValue()); 
@@ -182,7 +182,7 @@ public class Battle
             {
                 enemy.setHealth(0);
                 victory = true;
-                System.out.println("YOU WIIIIIIN yay                                                         (UWU)");
+                System.out.println("YOU WIIIIIIN yay                                                    (UWU)");
                 break;
             }
             System.out.println(player.getPlayerInformation());

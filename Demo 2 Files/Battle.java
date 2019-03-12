@@ -157,14 +157,6 @@ public class Battle
             System.out.println();
             Scanner x = new Scanner(System.in);
             String card = x.nextLine();
-            for(int r = 1; r <= playerHand.getDeckList().size(); r++)
-            {
-              if (card.equals("" + r))
-              {
-                card = playerHand.getCard(r).getCardName();
-                break;
-              }
-            }
             
             if (card.equals("pass"))
             {

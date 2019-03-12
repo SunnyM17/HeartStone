@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.Random;
 import javafx.application.Application;
@@ -73,17 +72,28 @@ public class main extends Application
         boi0.setScene(boi2);
         boi0.show();
         // intro or whatever
-        while (true)
+        boolean victory = true;
+        while (victory == true)
         {
-        dead = battle(Player1, GiantRat);
+        Battle battle0 = new Battle();
+        victory = battle0.battle(Player1, GiantRat);
         
-        dead = battle(Player1, Mage);  
+        Battle battle1 = new Battle();
+        victory = battle1.battle(Player1, Mage);  
         
-        dead = battle(Player1, Minotaur);
+        Battle battle2 = new Battle();
+        victory = battle2.battle(Player1, Minotaur);
+        break;
         }
         
+        if (victory == true)
+        {
+            System.out.println("YAAAAY YOU BEAT THE GAME GOOD JOB");
+        }else
+        {
+            System.out.println("AWWWW, YOU'RE DEAD. TRY AGAIN!");
+        }
         
-        System.out.println("YAAAAY YOU BEAT THE GAME GOOD JOB");
     }
     
 }

@@ -181,7 +181,7 @@ public class Battle
             {
                 enemy.setHealth(0);
                 victory = true;
-                System.out.println("YOU WIIIIIIN yay                                                         (UWU)");
+                System.out.println("YOU WIIIIIIN yay");
                 break;
             }
             System.out.println(player.getPlayerInformation());

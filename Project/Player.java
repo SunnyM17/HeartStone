@@ -81,9 +81,9 @@ public class Player {
    * Sets a new max energy value for the player.
    * @param energyValue A value to update the max energy.
    */
-    public void setMaxEnergy(int energyValue)
+    public void setMaxEnergy(int maxEn)
     {
-        this.remainingEnergy = energyValue;
+        this.maxEnergy = maxEn;
     }
 
     /**
@@ -92,7 +92,7 @@ public class Player {
    */
     public void setMaxHealth(int maxHP)
     {
-        this.remainingHealth = maxHP;
+        this.maxHealth = maxHP;
     }
 
     /**

@@ -1,25 +1,22 @@
+
 import java.util.ArrayList;
 public class Deck {
-  // Instance Variable
   private ArrayList<Card> deck = new ArrayList<Card>();
-  
+
   //Constructors
   public Deck(){
-
+        this.deck = new ArrayList<Card>();
+      
   }
   
-  public Deck(Deck deck)
-  {
-      this.deck = deck.deck;
-  } 
-  
+// Instance Variable
   public void addCard(Card card, int amount)
   {
     for(int i = 0; i < amount; i++)
     {
         deck.add(card);
     }
-  }
+   }
   
   public Card getCard(String cardToGet)
   {
@@ -28,15 +25,16 @@ public class Deck {
         if (cardToGet.equals(deck.get(i).getCardName()))
         {
             return deck.get(i);
-            
         }
     }
-    return null;
+    return deck.get(0);
   }
+  
   public Card getCard(int cardToGet)
   {
-    return this.deck.get(cardToGet);
+      return this.deck.get(cardToGet);
   }
+  
   
   public ArrayList getDeckList()
   {

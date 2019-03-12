@@ -73,6 +73,8 @@ public class main extends Application
         boi0.setScene(boi2);
         boi0.show();
         // intro or whatever
+        while (true)
+        {
         Battle formalboi0 = new Battle();
         formalboi0.battle(Player1, GiantRat);
         
@@ -81,6 +83,8 @@ public class main extends Application
         
         Battle formalboi2 = new Battle();
         formalboi2.battle(Player1, Minotaur);
+        }
+        
         
         System.out.println("YAAAAY YOU BEAT THE GAME GOOD JOB");
     }

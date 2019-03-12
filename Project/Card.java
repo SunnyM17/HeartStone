@@ -1,3 +1,4 @@
+
 public class Card {
 
   //Instance Variables
@@ -9,36 +10,13 @@ public class Card {
 
   //Constructors
   public Card (String cardName, int energyCost, int damageValue, int blockValue, int drawValue) {
-    setCardName(cardName);
-    setEnergyCost(energyCost);
-    setDamageValue(damageValue);
-    setBlockValue(blockValue);
-    setDrawValue(drawValue);
-  }
-
-  // Setter Methods
-  public void setCardName(String cardName)
-  {
     this.cardName = cardName;
-  }
-  public void setEnergyCost(int energyCost)
-  {
     this.energyCost = energyCost;
-  }
-  public void setDamageValue(int damageValue)
-  {
     this.damageValue = damageValue;
-  }
-  public void setBlockValue(int blockValue)
-  {
     this.blockValue = blockValue;
-  }
-  public void setDrawValue(int drawValue)
-  {
     this.drawValue = drawValue;
   }
   
-  //Accesor Methods
   public String getCardName()
   {
     return cardName;
@@ -53,7 +31,17 @@ public class Card {
   {
     return damageValue;
   }
+
+  public int getBlockValue()
+  {
+    return blockValue;
+  }  
   
+  public int getDrawValue()
+  {
+    return drawValue;
+  }
+  //Accessor Method
   public String showCardDescription() {
     String cardDescription = (cardName + ": "+"Energy Cost: " + energyCost);
     if (damageValue > 0) {
@@ -62,8 +50,13 @@ public class Card {
     if (blockValue > 0) {
       cardDescription += (", Blocks "+blockValue+" damage");
     }
-
+    if (drawValue == 1) {
+      cardDescription += (", Draws "+drawValue+" card");
+    } else if (drawValue > 0) {
+      cardDescription += (", Draws "+drawValue+" cards");
+    }
     cardDescription += ".";
+    System.out.println();
     return cardDescription;
   }
 }

@@ -1,3 +1,4 @@
+
 public class Player
 {
     //instance variables
@@ -9,18 +10,6 @@ public class Player
     private int block;
     private Deck playerDeck = new Deck();
 
-    public Player(String player)
-    {
-        this.playerName = player;
-        this.maxHealth = 80;
-        this.remainingHealth = 80;
-        this.maxEnergy = 3;
-        this.remainingEnergy = 3;
-        this.block = 0;
-        playerDeck.addCard(new Card("SLASH", 1, 6, 0, 0),5);
-        playerDeck.addCard(new Card("GUARD", 1, 0, 5, 0),5);
-    }
-
     public Player()
     {
         this.maxHealth = 80;
@@ -31,29 +20,67 @@ public class Player
         playerDeck.addCard(new Card("SLASH", 1, 6, 0, 0),5);
         playerDeck.addCard(new Card("GUARD", 1, 0, 5, 0),5);
     }
-
-    public void setBlock(int amount)
+    public Player(String playerName)
     {
-        this.block = amount;
+        this.playerName = playerName;
+        this.maxHealth = 80;
+        this.remainingHealth = 80;
+        this.maxEnergy = 3;
+        this.remainingEnergy = 3;
+        this.block = 0;
+        this.playerDeck.addCard(new Card("SLASH", 1, 6, 0, 0),5);
+        this.playerDeck.addCard(new Card("GUARD", 1, 0, 5, 0),4);
     }
-    void altHealth(int amount)
+    
+    public void altHealth(int amount)
     {
-        remainingHealth -= amount;
+       if (amount > block)
+       {
+            remainingHealth -= (amount - block);
+            block = 0;
+       }
+       else
+       {
+           if(block >= amount)
+           {
+                block -= amount;
+           }
+       }
     }
 
-    void altEnergy(int amount)
+    public void altEnergy(int amount)
     {
         remainingEnergy -= amount;
     }
 
-    void altBlock(int amount)
+    public void altBlock(int amount)
     {
-        block -= amount;
+        block += amount;
     }
     
+    public int getBlock()
+    {
+        return block;
+    } 
+    
+    public void setBlock(int amount)
+    {
+        this.block = amount;
+    }
     public int getRemainingHealth()
     {
-        return remainingHealth;
+        if (remainingHealth > 0)
+        {
+            return remainingHealth;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    public void setHealth(int x)
+    {
+        remainingHealth = x;
     }
     
     public void setMaxEnergy(int amount)
@@ -64,6 +91,11 @@ public class Player
     public void setMaxHealth(int amount)
     {
         remainingHealth = amount;
+    }
+    
+    public int getRemainingEnergy()
+    {
+        return remainingEnergy;
     }
     
     public int getMaxEnergy()
@@ -81,6 +113,6 @@ public class Player
         return playerDeck;
     }
     public String getPlayerInformation() {
-        return (playerName + ": "+remainingHealth+"/"+maxHealth+", "+block+ " block, "+remainingEnergy+"/"+maxEnergy);
+        return (playerName + ": "+getRemainingHealth() +"/"+maxHealth+", " + " block: "+ block + ", " + "ENERGY: " + remainingEnergy + "/"+maxEnergy);
     }
 }

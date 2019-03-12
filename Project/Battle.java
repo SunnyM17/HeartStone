@@ -10,7 +10,7 @@ public class Battle
       int noCard = 0;
       int blockTurnP = 0;
       int blockTurnE = 1;
-      player.setHealth(player.getMaxHealth());
+      player.setHealth(player.getRemainingnHealth());
       //Ongoing Decks that will be altered as battle goes on
       Deck ongDeckP =  new Deck();
       Deck ongDeckE = new Deck();

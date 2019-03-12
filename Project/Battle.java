@@ -3,14 +3,15 @@
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.sound.sampled.BooleanControl;
+
 public class Battle 
 {
-    public void battle(Player player, Enemy enemy)
+    public boolean Battle(Player player, Enemy enemy)
     {
       int noCard = 0;
       int blockTurnP = 0;
       int blockTurnE = 1;
-        
       //Ongoing Decks that will be altered as battle goes on
       Deck ongDeckP =  new Deck();
       Deck ongDeckE = new Deck();
@@ -97,7 +98,7 @@ public class Battle
           }     
         }
         //Step 3: Enemy randomly chooses cards from hand to play, while energy is available
-        while(enemy.getRemainingEnergy() > 0 && enemyHand.getDeckList().size() > 0 && enemy.getRemainingEnergy() > 0 && victory == false)//Enemy keeps playing cards while energy and cards remain
+        while(enemy.getRemainingHealth() > 0 && enemyHand.getDeckList().size() > 0 && enemy.getRemainingEnergy() > 0 && victory == false)//Enemy keeps playing cards while energy and cards remain
         {
             Random rand = new Random();
             int cardToPlay = rand.nextInt(enemyHand.getDeckList().size());
@@ -143,7 +144,7 @@ public class Battle
         blockTurnP = 0;
         System.out.println("------------------------------------------------------------------------------------------------------------");
         
-        while(player.getRemainingEnergy() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0 && victory == false)
+        while(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0 && victory == false)
         {
             System.out.print("you have the following cards in your hands ");
             System.out.println("Make sure to type the card name in all caps as shown or we will pick the first card in the deck. type 'pass' to skip your turn |");
@@ -181,7 +182,7 @@ public class Battle
             {
                 enemy.setHealth(0);
                 victory = true;
-                System.out.println("YOU WIIIIIIN yay");
+                System.out.println("YOU WIIIIIIN yay                                                         (UWU)");
                 break;
             }
             System.out.println(player.getPlayerInformation());
@@ -191,6 +192,9 @@ public class Battle
             System.out.println();        
         }
         System.out.println("------------------------------------------------------------------------------------------------------------");
-      }  
+        
+      }
+
+    return victory;
     }
 }

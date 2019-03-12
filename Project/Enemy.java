@@ -19,7 +19,7 @@ public class Enemy {
    private Deck enemyDeck;
 
 
-   //Constructors
+   //Constructor
 
    /**
    * This method creates an Enemy object to store the enemy name, max
@@ -76,9 +76,9 @@ public class Enemy {
    * Sets a new health value for the enemy.
    * @param healthValue A value to update health.
    */
-   public void setHealth(int healthValue)
+   public void setHealth(int HP)
    {
-      this.remainingHealth = healthValue;
+      this.remainingHealth = HP;
    }
 
 

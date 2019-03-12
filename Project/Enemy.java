@@ -1,3 +1,4 @@
+
 public class Enemy {
 
    //Instance Variables
@@ -22,24 +23,45 @@ public class Enemy {
 
    //Accesor methods
    public String getEnemyInformation() {
-        return (enemyName + ": "+remainingHealth+"/"+maxHealth+", "+block+" block");
+        return (enemyName + ": "+remainingHealth+"/"+maxHealth+", " + "block: "+ block);
    }
 
+   public int getBlock()
+   {
+        return block;
+   }
    //Mutator Methods
    public void setBlock(int amount)
    {
        this.block = amount;
    }
-   public void altHealth(int amount) {
-        remainingHealth -= amount;
-   }
+   
+   public void altHealth(int amount)
+    {
+       if (amount > block)
+       {
+            remainingHealth -= (amount - block);
+            block = 0;
+       }
+       else
+       {
+           if(block >= amount)
+           {
+                block -= amount;
+           }
+       }
+    }
    public void altEnergy(int amount) {
         remainingEnergy -= amount;
    }
    public void altBlock(int amount) {
-        block -= amount;
+        block += amount;
    }
        
+   public String getName()
+   {
+       return enemyName;
+   }
     public int getRemainingHealth()
     {
         return remainingHealth;
@@ -50,6 +72,10 @@ public class Enemy {
         return remainingEnergy;
     }
     
+    public void setHealth(int x)
+    {
+        this.remainingHealth = x;
+    }
     public void setMaxEnergy(int amount)
     {
         remainingEnergy = amount;

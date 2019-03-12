@@ -135,7 +135,7 @@ public class Battle
             }
             else
             {
-                System.out.println("You have been slayin by " + enemy.getName()+ ". What a N00B!");
+                System.out.println("You have been slain by " + enemy.getName()+ ". What a N00B!");
                 victory = true;
                 break;
             }
@@ -157,6 +157,15 @@ public class Battle
             System.out.println();
             Scanner x = new Scanner(System.in);
             String card = x.nextLine();
+            for(int r = 1; r <= playerHand.getDeckList().size(); r++)
+            {
+              if (card.equals("" + r))
+              {
+                card = playerHand.getCard(r).getCardName();
+                break;
+              }
+            }
+            
             if (card.equals("pass"))
             {
                 System.out.println("YOU PASSED");

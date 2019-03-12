@@ -75,14 +75,11 @@ public class main extends Application
         // intro or whatever
         while (true)
         {
-        Battle formalboi0 = new Battle();
-        formalboi0.battle(Player1, GiantRat);
+        dead = battle(Player1, GiantRat);
         
-        Battle formalboi1 = new Battle();
-        formalboi1.battle(Player1, Mage);  
+        dead = battle(Player1, Mage);  
         
-        Battle formalboi2 = new Battle();
-        formalboi2.battle(Player1, Minotaur);
+        dead = battle(Player1, Minotaur);
         }
         
         

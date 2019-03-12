@@ -1,8 +1,32 @@
+
 import java.util.Scanner;
 import java.util.Random;
-public class main
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.layout.GridPane;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+public class main extends Application
 {
     public static void main(String[] args) {
+        launch(args);
+    }
+    
+    @Override
+    public void start(Stage stage)
+    {
+        Stage boi0 = new Stage();
+        GridPane boi1 = new GridPane();
+        boi1.setHgap(10);
+        boi1.setPadding(new Insets(500,500,500,500));
+        boi0.setMaxHeight(600);
+        boi0.setMaxWidth(800);
+        Label title = new Label("SLAY THE SPIRE");
+        boi1.add(title, 0, 0);
+        boi1.setHalignment(title, HPos.CENTER);
+        
         //DIS IS DE MASTER CARD DECC UWU (has all the cards)
         Deck masterDeck = new Deck();
         masterDeck.addCard(new Card("SLASH", 1, 6, 0, 0),1);
@@ -13,6 +37,7 @@ public class main
         masterDeck.addCard(new Card("STOMP", 2, 5, 5, 1),1);
         masterDeck.addCard(new Card("CHARGE", 3, 28, 0, 0),1);
         masterDeck.addCard(new Card("THICK HIDE", 0, 0, 4, 0),1);
+        masterDeck.addCard(new Card("pass", 0 ,0 ,0 ,0),1);
         
         //Enemy Decks
         Deck GiantRatDeck = new Deck();
@@ -42,15 +67,22 @@ public class main
         System.out.println("Please input your name.");
         Scanner keyboard = new Scanner(System.in);
         String playerName = keyboard.nextLine();
-
+        System.out.println();
         Player Player1 = new Player(playerName);
+        Scene boi2 = new Scene(boi1, 600,800);
+        boi0.setScene(boi2);
+        boi0.show();
+        // intro or whatever
+        Battle formalboi0 = new Battle();
+        formalboi0.battle(Player1, GiantRat);
         
-        boolean dead = false;
-        while (dead != true)
-        {
-            dead = battle(Player1, Mage);
-        }
-        //If dead = true, sorry you lost
-        //If dead = false, congarts you won 😊
+        Battle formalboi1 = new Battle();
+        formalboi1.battle(Player1, Mage);  
+        
+        Battle formalboi2 = new Battle();
+        formalboi2.battle(Player1, Minotaur);
+        
+        System.out.println("YAAAAY YOU BEAT THE GAME GOOD JOB");
     }
+    
 }

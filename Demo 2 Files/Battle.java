@@ -177,8 +177,24 @@ public class Battle
             {
                 blockTurnP += 1;
             }
+            if ((playerHand.getCard(card).getDamageValue() < 0))
+            {
+                if ((player.getRemainingHealth() - playerHand.getCard(card).getDamageValue) >= player.getmaxHealth())
+                {
+                    player.altHealth(player.getmaxHealth());
+                    playerHand.getDeckList().remove(playerHand.getCard(card));
+                }
+                if ((player.getRemainingHealth() - playerHand.getCard(card).getDamageValue) <= player.getmaxHealth())
+                {
+                player.altHealth((playerHand.getCard(card)).getDamageValue());
+                playerHand.getDeckList().remove(playerHand.getCard(card));
+                } 
+            }
+            if (playerHand.getCard(card).getDamageValue() > 0)
+            {
             enemy.altHealth((playerHand.getCard(card)).getDamageValue());
             playerHand.getDeckList().remove(playerHand.getCard(card));
+            }
             if (enemy.getRemainingHealth() <= 0 )
             {
                 enemy.setHealth(0);

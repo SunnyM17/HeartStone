@@ -1,12 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
-import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.layout.GridPane;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
+
 
 /**
 * <h1>Main!</h1>
@@ -17,24 +11,7 @@ import javafx.geometry.Insets;
 public class main extends Application {
 
     public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage stage)
-    {
-
-        Stage first = new Stage();
-        GridPane second = new GridPane();
-        second.setHgap(10);
-        second.setPadding(new Insets(500,500,500,500));
-        first.setMaxHeight(600);
-        first.setMaxWidth(800);
-        Label title = new Label("ASCENSION");
-        second.add(title, 0, 0);
-        second.setHalignment(title, HPos.CENTER);
-
-        //The master deck is a collection of all the cards in the game
+         //The master deck is a collection of all the cards in the game
         Deck masterDeck = new Deck();
         masterDeck.addCard(new Card("SLASH", 1, 6, 0),1);
         masterDeck.addCard(new Card("GUARD", 1, 0, 5),1);
@@ -84,9 +61,6 @@ public class main extends Application {
         //Initializing the player
         Player Player1 = new Player(playerName);
 
-        Scene third = new Scene(second, 600,800);
-        first.setScene(third);
-        first.show();
 
         //Player undergoes one battle against each enemy
         boolean victory = true;
@@ -116,4 +90,6 @@ public class main extends Application {
             System.out.println("Sorry, you lost. Try again?");
         }
     }
+
+    
 }

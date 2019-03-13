@@ -271,9 +271,9 @@ public class Battle {
                     int randomCard3 = rand3.nextInt(enemy.getDeck().getDeckList().size());
 
                     //Prints the descriptions of all 3 cards
-                    System.out.println(enemy.getDeck().getDeckList().getCard(randomCard1).showCardDescription());
-                    System.out.println(enemy.getDeck().getDeckList().getCard(randomCard2).showCardDescription());
-                    System.out.println(enemy.getDeck().getDeckList().getCard(randomCard3).showCardDescription());
+                    System.out.println(enemy.getDeck().getCard(randomCard1).showCardDescription());
+                    System.out.println(enemy.getDeck().getCard(randomCard2).showCardDescription());
+                    System.out.println(enemy.getDeck().getCard(randomCard3).showCardDescription());
                     System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
 
                     //Checks for which card you would like to add
@@ -282,13 +282,13 @@ public class Battle {
 
                     if (cardToAdd == "1")
                     {
-                          player.getDeck().getDeckList().addCard(enemy.getDeck().getDeckList().getCard(randomCard1), 1);
+                          player.getDeck().addCard(enemy.getDeck().getCard(randomCard1), 1);
                     } else if (cardToAdd == "2") {
-                          player.getDeck().getDeckList().addCard(enemy.getDeck().getDeckList().getCard(randomCard2), 1);
+                          player.getDeck().addCard(enemy.getDeck().getCard(randomCard2), 1);
                     } else if (cardToAdd == "3") {
-                          player.getDeck().getDeckList().addCard(enemy.getDeck().getDeckList().getCard(randomCard3), 1);
+                          player.getDeck().addCard(enemy.getDeck().getCard(randomCard3), 1);
                     } else {
-                          player.getDeck().getDeckList().addCard(enemy.getDeck().getDeckList().getCard(randomCard1), 1);
+                          player.getDeck().addCard(enemy.getDeck().getCard(randomCard1), 1);
                     }
               }
               return victory;

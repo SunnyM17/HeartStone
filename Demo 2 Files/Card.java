@@ -128,6 +128,9 @@ public class Card {
     if (blockValue > 0) {
       cardDescription += (", Blocks "+blockValue+" damage");
     }
+    if (damageValue < 0) {
+      cardDescription += (", Heals "+(-damageValue)+ damage");
+    }
     cardDescription += ".";
     System.out.println();
     return cardDescription;

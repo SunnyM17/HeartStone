@@ -167,6 +167,11 @@ public class Battle
             
             for(int i = 1; i <= playerHand.getDeckList().size(); i++)
             {
+                if()
+            }
+            
+            for(int i = 1; i <= playerHand.getDeckList().size(); i++)
+            {
                 
             }
             

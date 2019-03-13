@@ -14,7 +14,6 @@ public class Card {
   private int energyCost;
   private int damageValue;
   private int blockValue;
-  private int drawValue;
 
 
   //Constructor
@@ -27,15 +26,12 @@ public class Card {
   * @param damageValue The damage value of the card when used on the enemy.
   * @param blockValue The defence value of the card to block against
   * incoming enemy attacks.
-  * @param drawValue The draw value determines if the card has the ability
-  * to draw again from the deck when the card is used.
   */
-  public Card (String cardName, int energyCost, int damageValue, int blockValue, int drawValue) {
+  public Card (String cardName, int energyCost, int damageValue, int blockValue) {
     this.cardName = cardName;
     this.energyCost = energyCost;
     this.damageValue = damageValue;
     this.blockValue = blockValue;
-    this.drawValue = drawValue;
   }
 
 
@@ -77,14 +73,6 @@ public class Card {
     this.blockValue = blockValue;
   }
 
-  /**
-  * Sets a new draw value to the card.
-  * @param drawValue A value to update the draw value.
-  */
-  public void setDrawValue(int drawValue)
-  {
-    this.drawValue = drawValue;
-  }
 
 
   //Accesor Methods
@@ -125,14 +113,6 @@ public class Card {
     return blockValue;
   }
 
-  /**
-  * A method to obtain the draw value.
-  * @return int This returns the draw value.
-  */
-  public int getDrawValue()
-  {
-    return drawValue;
-  }
 
   /**
   * A method to obtain all the information on the card. Such as the
@@ -147,11 +127,6 @@ public class Card {
     }
     if (blockValue > 0) {
       cardDescription += (", Blocks "+blockValue+" damage");
-    }
-    if (drawValue == 1) {
-      cardDescription += (", Draws "+drawValue+" card");
-    } else if (drawValue > 0) {
-      cardDescription += (", Draws "+drawValue+" cards");
     }
     cardDescription += ".";
     System.out.println();

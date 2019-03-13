@@ -69,7 +69,7 @@ public class Battle
               
             }
           }
-          if (ongDeckE.getDeckList().size() < 10) 
+          if (ongDeckE.getDeckList().size() < 5) 
           {
             for (int z = 0; z < enemyDiscard.getDeckList().size(); z++)
             {

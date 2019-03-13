@@ -28,15 +28,15 @@ public class main extends Application
         
         //DIS IS DE MASTER CARD DECC UWU (has all the cards)
         Deck masterDeck = new Deck();
-        masterDeck.addCard(new Card("SLASH", 1, 6, 0, 0),1);
-        masterDeck.addCard(new Card("GUARD", 1, 0, 5, 0),1);
-        masterDeck.addCard(new Card("CLAW", 1, 3, 3, 0),1);
-        masterDeck.addCard(new Card("FIRE BALL", 2, 13, 0, 0),1);
-        masterDeck.addCard(new Card("ICE BLOCK", 2, 0, 11, 0),1);
-        masterDeck.addCard(new Card("STOMP", 2, 5, 5, 1),1);
-        masterDeck.addCard(new Card("CHARGE", 3, 28, 0, 0),1);
-        masterDeck.addCard(new Card("THICK HIDE", 0, 0, 4, 0),1);
-        masterDeck.addCard(new Card("pass", 0 ,0 ,0 ,0),1);
+        masterDeck.addCard(new Card("SLASH", 1, 6, 0),1);
+        masterDeck.addCard(new Card("GUARD", 1, 0, 5),1);
+        masterDeck.addCard(new Card("CLAW", 1, 3, 3),1);
+        masterDeck.addCard(new Card("FIRE BALL", 2, 13, 0),1);
+        masterDeck.addCard(new Card("ICE BLOCK", 2, 0, 11),1);
+        masterDeck.addCard(new Card("STOMP", 2, 5, 5),1);
+        masterDeck.addCard(new Card("CHARGE", 3, 28, 0),1);
+        masterDeck.addCard(new Card("THICK HIDE", 0, 0, 4),1);
+        masterDeck.addCard(new Card("pass", 0 ,0 ,0),1);
         
         //Enemy Decks
         Deck GiantRatDeck = new Deck();

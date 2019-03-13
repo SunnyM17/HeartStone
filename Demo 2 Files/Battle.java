@@ -15,14 +15,14 @@ public class Battle
       //Ongoing Decks that will be altered as battle goes on
       Deck ongDeckP =  new Deck();
       Deck ongDeckE = new Deck();
-      for (int boi = 0; boi < player.getDeck().getDeckList().size(); boi++)
+      for (int x = 0; x < player.getDeck().getDeckList().size(); x++)
       {
-            ongDeckP.addCard(player.getDeck().getCard(boi),1);
+            ongDeckP.addCard(player.getDeck().getCard(x),1);
       }
       
-      for (int boi = 0; boi < enemy.getDeck().getDeckList().size(); boi++)
+      for (int x = 0; x < enemy.getDeck().getDeckList().size(); x++)
       {
-            ongDeckE.addCard(enemy.getDeck().getCard(boi),1);
+            ongDeckE.addCard(enemy.getDeck().getCard(x),1);
       }
 
       //The cards in the hand of each combatant
@@ -135,7 +135,7 @@ public class Battle
             }
             else
             {
-                System.out.println("You have been slain by " + enemy.getName()+ ". What a N00B!");
+                System.out.println("You have been slain by " + enemy.getName());
                 victory = true;
                 break;
             }
@@ -147,8 +147,8 @@ public class Battle
         
         while(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0 && !victory)
         {
-            System.out.print("you have the following cards in your hands ");
-            System.out.println("type 'pass' to skip your turn |");
+            System.out.print("You have the following cards in your hand: ");
+            System.out.println("Enter the name of the card, or it's nnumerical position in your hand to play it. Type 'pass' to end your turn. |");
             // shows you your cards.
             for(int i = 0; i < playerHand.getDeckList().size(); i++)
             {
@@ -162,7 +162,7 @@ public class Battle
             
             if (card.equals("PASS"))
             {
-                System.out.println("YOU PASSED");
+                System.out.println("You ended your turn.");
                 break;
             }
             
@@ -177,7 +177,7 @@ public class Battle
 
             if (playerHand.getCard(card).getEnergyCost() > player.getRemainingEnergy())
             {
-                System.out.println("NOT ENOUGH ENERGY");
+                System.out.println("You don't have enough energy to play that!");
                 card = x.nextLine();
             }
             System.out.println("You played "+(playerHand.getCard(card).showCardDescription()));
@@ -194,7 +194,7 @@ public class Battle
             {
                 enemy.setHealth(0);
                 victory = true;
-                System.out.println("YOU WIIIIIIN yay                                                    (UWU)");
+                System.out.println(enemy.getName()+" has been defeated!");
                 break;
             }
             System.out.println(player.getPlayerInformation());

@@ -213,7 +213,7 @@ public class Battle {
                           }
 
                           //If the player selects a card they cannot afford to play
-                          if (playerHand.getCard(card).getEnergyCost() > player.getRemainingEnergy()
+                          if (playerHand.getCard(card).getEnergyCost() > player.getRemainingEnergy())
                           {
                                 System.out.println("You don't have enough energy to play that!");
                                 card = x.nextLine();
@@ -274,7 +274,7 @@ public class Battle {
                     System.out.println(enemy.getDeckList().getCard(randomCard1).showCardDescription());
                     System.out.println(enemy.getDeckList().getCard(randomCard2).showCardDescription());
                     System.out.println(enemy.getDeckList().getCard(randomCard3).showCardDescription());
-                    System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)")
+                    System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
 
                     //Checks for which card you would like to add
                     Scanner x2 = new Scanner(System.in);
@@ -282,13 +282,13 @@ public class Battle {
 
                     if (cardToAdd == "1")
                     {
-                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard1), 1)
+                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard1), 1);
                     } else if (cardToAdd == "2") {
-                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard2), 1)
+                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard2), 1);
                     } else if (cardToAdd == "3") {
-                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard3), 1)
+                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard3), 1);
                     } else {
-                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard1), 1)
+                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard1), 1);
                     }
               }
               return victory;

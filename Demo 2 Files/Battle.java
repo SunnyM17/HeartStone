@@ -37,12 +37,12 @@ public class Battle
       boolean victory = false;
       while ((!victory) && (player.getRemainingHealth() > 0 )) //While the player hasn't lost or won, the battle goes on
       {
-        //Step 0: Announce relevant stats for each combatant
+        //Announce relevant stats for each combatant
         System.out.println(player.getPlayerInformation());
         System.out.println(enemy.getEnemyInformation());
         System.out.println();
         
-        //Step 1: Refresh Energy of each combatant
+        //Refresh Energy of each combatant
         
         if (blockTurnP == 0)
         {
@@ -56,7 +56,7 @@ public class Battle
         player.setRemainingEnergy(player.getMaxEnergy());
         enemy.setRemainingEnergy(enemy.getMaxEnergy());
 
-        //Step 2: Each combatant draws 5 cards from their deck 
+        //Each combatant draws 5 cards from their deck 
         for (int x = 0; x < 6; x++)
         {
           //If any of the decks are empty while attempting to draw, shuffles the discard pile into the deck
@@ -97,16 +97,17 @@ public class Battle
             ongDeckE.getDeckList().remove(randomDrawE);
           }     
         }
-        //Step 3: Enemy randomly chooses cards from hand to play, while energy is available
+        //Enemy randomly chooses cards from hand to play, while energy is available
         while(enemy.getRemainingHealth() > 0 && enemyHand.getDeckList().size() > 0 && enemy.getRemainingEnergy() > 0 && !victory)//Enemy keeps playing cards while energy and cards remain
         {
+            //Current "AI" just randomly selects cards from hand to play
             Random rand = new Random();
             int cardToPlay = rand.nextInt(enemyHand.getDeckList().size());
-            if (player.getRemainingHealth() > 0)
+            if (player.getRemainingHealth() > 0) //Only keeps playing cards while player is not dead
             {
                 while(enemyHand.getCard(cardToPlay).getEnergyCost() > (enemy.getRemainingEnergy()))
                 {
-                    if(noCard == 999)
+                    if(noCard == 999)//Failsafe: If a card is randomly selected from the enemy's hand 999 times and the enemy still doesn't have enough energy to play the selected card, ends its turn.
                     {
                         //System.out.println("Enemy passed");
                         enemy.setRemainingEnergy(0);
@@ -118,7 +119,8 @@ public class Battle
                 }
                 
                 if (noCard != 999)
-                {
+                {   
+                    //If the card is played alters all relavant stats by given amounts
                     System.out.println("Enemy played "+(enemyHand.getCard(cardToPlay).showCardDescription()));
                     enemyDiscard.addCard(enemyHand.getCard(cardToPlay), 1);
                     enemy.altEnergy(enemyHand.getCard(cardToPlay).getEnergyCost());
@@ -144,28 +146,29 @@ public class Battle
         blockTurnP = 0;
         System.out.println("------------------------------------------------------------------------------------------------------------");
 
-        
+        //Player's turn begins
         while(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0 && !victory)
         {
             System.out.print("You have the following cards in your hand: ");
-            System.out.println("Enter the name of the card, or it's nnumerical position in your hand to play it. Type 'pass' to end your turn. |");
+            System.out.println("Enter the name of the card, or it's numerical position in your hand to play it. Type 'pass' to end your turn. |");
             // shows you your cards.
             for(int i = 0; i < playerHand.getDeckList().size(); i++)
             {
                 System.out.print(playerHand.getCard(i).getCardName() + " | ");
             }
-            //
             System.out.println();
             Scanner x = new Scanner(System.in);
             String card = x.nextLine();
             card = card.toUpperCase();
             
+            //If the player enters "pass", they end their turn
             if (card.equals("PASS"))
             {
                 System.out.println("You ended your turn.");
                 break;
             }
             
+            //Plays the card specified by the player
             for(int r = 1; r <= playerHand.getDeckList().size(); r++)
             {
                 if(card.equals("" + r))
@@ -175,11 +178,13 @@ public class Battle
                 }
             }
 
+            //If the player selects a card they cannot afford to play
             if (playerHand.getCard(card).getEnergyCost() > player.getRemainingEnergy())
             {
                 System.out.println("You don't have enough energy to play that!");
                 card = x.nextLine();
             }
+            //If a card is played, alters all relavant stats
             System.out.println("You played "+(playerHand.getCard(card).showCardDescription()));
             playerDiscard.addCard(playerHand.getCard(card), 1);
             player.altEnergy(playerHand.getCard(card).getEnergyCost());
@@ -190,6 +195,8 @@ public class Battle
             }
             enemy.altHealth((playerHand.getCard(card)).getDamageValue());
             playerHand.getDeckList().remove(playerHand.getCard(card));
+            
+            //If the enemy's health goes to 0 or less, ends the battle and sets victory to true.
             if (enemy.getRemainingHealth() <= 0 )
             {
                 enemy.setHealth(0);
@@ -197,6 +204,7 @@ public class Battle
                 System.out.println(enemy.getName()+" has been defeated!");
                 break;
             }
+            //Outputs all relavant stats again at the end
             System.out.println(player.getPlayerInformation());
             System.out.println(enemy.getEnemyInformation());
             System.out.println();

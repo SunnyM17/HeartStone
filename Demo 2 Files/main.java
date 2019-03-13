@@ -10,7 +10,7 @@ import javafx.geometry.Insets;
 
 /**
 * <h1>Main!</h1>
-* The main program brings together a functioning and engaging
+* The Main program brings together a functioning and engaging
 * game by utilizing the methods and objects of battle, player,
 * enemy, card and deck classes.
 */

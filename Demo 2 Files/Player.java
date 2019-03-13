@@ -132,6 +132,11 @@ public class Player {
            return maxHealth;
        }
 
+        public String getPlayerName()
+        {
+            return playerName;
+        }
+    
        /**
        * A method to obtain max energy value.
        * @return int This returns the player's max energy.

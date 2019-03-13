@@ -41,6 +41,7 @@ public class main extends Application {
         masterDeck.addCard(new Card("CLAW", 1, 3, 3),1);
         masterDeck.addCard(new Card("FIRE BALL", 2, 13, 0),1);
         masterDeck.addCard(new Card("ICE BLOCK", 2, 0, 11),1);
+        masterDeck.addCard(new Card("HEALING WAVE", 1, -5, 0),1);
         masterDeck.addCard(new Card("STOMP", 2, 5, 5),1);
         masterDeck.addCard(new Card("CHARGE", 3, 28, 0),1);
         masterDeck.addCard(new Card("THICK HIDE", 0, 0, 4),1);
@@ -107,11 +108,11 @@ public class main extends Application {
         //Determines if player is defeated or victorious
         if (Player1.getRemainingHealth() > 0)
         {
-            System.out.println("YAAAAY YOU BEAT THE GAME GOOD JOB");
+            System.out.println("Congratulations, you won!");
         }
         else
         {
-            System.out.println("AWWWW, YOU'RE DEAD. TRY AGAIN!");
+            System.out.println("Sorry, you lost. Try again?");
         }
     }
 }

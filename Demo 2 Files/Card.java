@@ -129,7 +129,7 @@ public class Card {
       cardDescription += (", Blocks "+blockValue+" damage");
     }
     if (damageValue < 0) {
-      cardDescription += (", Heals "+(-damageValue)+ damage");
+      cardDescription += (", Heals "+(-damageValue)+" damage");
     }
     cardDescription += ".";
     System.out.println();

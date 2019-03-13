@@ -7,26 +7,34 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-public class main extends Application
-{
+
+/**
+* <h1>Main!</h1>
+* The main program brings together a functioning and engaging
+* game by utilizing the methods and objects of battle, player,
+* enemy, card and deck classes.
+*/
+public class main extends Application {
+
     public static void main(String[] args) {
         launch(args);
     }
-    
+
     @Override
     public void start(Stage stage)
     {
-        Stage boi0 = new Stage();
-        GridPane boi1 = new GridPane();
-        boi1.setHgap(10);
-        boi1.setPadding(new Insets(500,500,500,500));
-        boi0.setMaxHeight(600);
-        boi0.setMaxWidth(800);
-        Label title = new Label("SLAY THE SPIRE");
-        boi1.add(title, 0, 0);
-        boi1.setHalignment(title, HPos.CENTER);
-        
-        //DIS IS DE MASTER CARD DECC UWU (has all the cards)
+
+        Stage first = new Stage();
+        GridPane second = new GridPane();
+        second.setHgap(10);
+        second.setPadding(new Insets(500,500,500,500));
+        first.setMaxHeight(600);
+        first.setMaxWidth(800);
+        Label title = new Label("ASCENSION");
+        second.add(title, 0, 0);
+        second.setHalignment(title, HPos.CENTER);
+
+        //The master deck is a collection of all the cards in the game
         Deck masterDeck = new Deck();
         masterDeck.addCard(new Card("SLASH", 1, 6, 0),1);
         masterDeck.addCard(new Card("GUARD", 1, 0, 5),1);
@@ -37,55 +45,66 @@ public class main extends Application
         masterDeck.addCard(new Card("CHARGE", 3, 28, 0),1);
         masterDeck.addCard(new Card("THICK HIDE", 0, 0, 4),1);
         masterDeck.addCard(new Card("pass", 0 ,0 ,0),1);
-        
-        //Enemy Decks
+
+        //Enemy Deck(GiantRat)
         Deck GiantRatDeck = new Deck();
         GiantRatDeck.addCard(masterDeck.getCard("SLASH"),3);
         GiantRatDeck.addCard(masterDeck.getCard("GUARD"),3);
         GiantRatDeck.addCard(masterDeck.getCard("CLAW"),3);
-        
+
+        //Enemy Deck(Mage)
         Deck MageDeck = new Deck();
         MageDeck.addCard(masterDeck.getCard("SLASH"),3);
         MageDeck.addCard(masterDeck.getCard("GUARD"),5);
         MageDeck.addCard(masterDeck.getCard("FIRE BALL"),4);
         MageDeck.addCard(masterDeck.getCard("ICE BLOCK"),3);
-        
+
+        //Enemy Deck(Minotaur)
         Deck MinotaurDeck = new Deck();
         MinotaurDeck.addCard(masterDeck.getCard("SLASH"),4);
         MinotaurDeck.addCard(masterDeck.getCard("GUARD"),2);
         MinotaurDeck.addCard(masterDeck.getCard("STOMP"),4);
         MinotaurDeck.addCard(masterDeck.getCard("CHARGE"),2);
         MinotaurDeck.addCard(masterDeck.getCard("THICK HIDE"),3);
-        
-        //birthing the bad bois you will face
-        Enemy GiantRat = new Enemy("Giant Rat", 45, 2, GiantRatDeck); 
+
+        //Initializing the enemies
+        Enemy GiantRat = new Enemy("Giant Rat", 45, 2, GiantRatDeck);
         Enemy Mage = new Enemy("Mage", 60 , 3, MageDeck);
         Enemy Minotaur = new Enemy("MINOTAUR", 90, 4, MinotaurDeck);
-        
-        //BIGBOIGame EMBARK!
+
+
+        //ROAD TO ASCENSION : BEGIN!
         System.out.println("Please input your name.");
         Scanner keyboard = new Scanner(System.in);
         String playerName = keyboard.nextLine();
         System.out.println();
+
+        //Initializing the player
         Player Player1 = new Player(playerName);
-        Scene boi2 = new Scene(boi1, 600,800);
-        boi0.setScene(boi2);
-        boi0.show();
-        // intro or whatever
+
+        Scene third = new Scene(second, 600,800);
+        first.setScene(third);
+        first.show();
+
+        //Player undergoes one battle against each enemy
         boolean victory = true;
         while (victory)
         {
-        Battle battle0 = new Battle();
-        victory = battle0.battle(Player1, GiantRat);
-        
-        Battle battle1 = new Battle();
-        victory = battle1.battle(Player1, Mage);  
-        
-        Battle battle2 = new Battle();
-        victory = battle2.battle(Player1, Minotaur);
-        break;
+             //First Battle : Player vs GiantRat
+             Battle battle0 = new Battle();
+             victory = battle0.battle(Player1, GiantRat);
+
+             //Second Battle : Player vs Mage
+             Battle battle1 = new Battle();
+             victory = battle1.battle(Player1, Mage);
+
+             //Third Battle : Player vs Minotaur
+             Battle battle2 = new Battle();
+             victory = battle2.battle(Player1, Minotaur);
+             break;
         }
-        
+
+        //Determines if player is defeated or victorious
         if (Player1.getRemainingHealth() > 0)
         {
             System.out.println("YAAAAY YOU BEAT THE GAME GOOD JOB");
@@ -94,7 +113,5 @@ public class main extends Application
         {
             System.out.println("AWWWW, YOU'RE DEAD. TRY AGAIN!");
         }
-        
     }
-    
 }

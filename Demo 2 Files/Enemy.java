@@ -49,6 +49,11 @@ public class Enemy {
    * Sets a new current block value for the enemy.
    * @param blockValue A value to update the block value.
    */
+   public void setRemainingEnergy(int amount)
+   {
+        remainingEnergy = amount;
+   }
+   
    public void setBlock(int blockValue)
    {
        this.block = blockValue;

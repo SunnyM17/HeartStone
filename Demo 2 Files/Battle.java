@@ -125,7 +125,11 @@ public class Battle
                     enemyDiscard.addCard(enemyHand.getCard(cardToPlay), 1);
                     enemy.altEnergy(enemyHand.getCard(cardToPlay).getEnergyCost());
                     enemy.altBlock(enemyHand.getCard(cardToPlay).getBlockValue());
-                    player.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
+                    if ((enemyHand.getCard(cardToPlay)).getDamageValue() < 0) {
+                        enemy.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
+                    } else {
+                        player.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
+                    }
                     enemyHand.getDeckList().remove(enemyHand.getCard(cardToPlay));
                 }   
                 noCard = 0;
@@ -193,7 +197,11 @@ public class Battle
             {
                 blockTurnP += 1;
             }
-            enemy.altHealth((playerHand.getCard(card)).getDamageValue());
+            if ((playerHand.getCard(cardToPlay)).getDamageValue() < 0) {
+                player.altHealth((playerHand.getCard(cardToPlay)).getDamageValue());
+            } else {
+                enemy.altHealth((playerHand.getCard(cardToPlay)).getDamageValue());
+            }
             playerHand.getDeckList().remove(playerHand.getCard(card));
             
             //If the enemy's health goes to 0 or less, ends the battle and sets victory to true.

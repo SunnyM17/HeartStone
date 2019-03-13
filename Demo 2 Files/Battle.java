@@ -227,8 +227,32 @@ public class Battle
         }
         System.out.println("------------------------------------------------------------------------------------------------------------");
       }
+    //If you won, after the battle you get to select a card to add to your deck, from 3 random cards from your opponent's deck.
     if (victory == true) {
-        rand1
+        Random rand1 = new Random();
+        int randomCard1 = rand1.nextInt(enemy.getDeck().getDeckList().size());
+        Random rand2 = new Random();
+        int randomCard2 = rand2.nextInt(enemy.getDeck().getDeckList().size());
+        Random rand3 = new Random();
+        int randomCard3 = rand3.nextInt(enemy.getDeck().getDeckList().size());
+        
+        System.out.println(enemy.getDeckList().getCard(randomCard1).showCardDescription());
+        System.out.println(enemy.getDeckList().getCard(randomCard2).showCardDescription());
+        System.out.println(enemy.getDeckList().getCard(randomCard3).showCardDescription());
+        System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)")
+        
+        Scanner x2 = new Scanner(System.in);
+        String cardToAdd = x2.nextLine();
+        
+        if (cardToAdd == "1") {
+            player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard1), 1)
+        } else if (cardToAdd == "2") {
+            player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard2), 1)
+        } else if (cardToAdd == "3") {
+            player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard3), 1)
+        } else {
+            player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard1), 1)
+        }
     }
     return victory;
     }

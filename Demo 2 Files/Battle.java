@@ -123,7 +123,7 @@ public class Battle {
                           //Current "AI" just randomly selects cards from hand to play
                           Random rand = new Random();
                           int cardToPlay = rand.nextInt(enemyHand.getDeckList().size());
-                          
+
                           //Keeps playing cards while player is not dead
                           if (player.getRemainingHealth() > 0)
                           {
@@ -228,15 +228,15 @@ public class Battle {
                           {
                                 blockTurnP += 1;
                           }
-                          if ((playerHand.getCard(cardToPlay)).getDamageValue() < 0)
+                          if ((playerHand.getCard(card)).getDamageValue() < 0)
                           {
-                                player.altHealth((playerHand.getCard(cardToPlay)).getDamageValue());
+                                player.altHealth((playerHand.getCard(card)).getDamageValue());
                                 if (player.getRemainingHealth() > player.getMaxHealth())
                                 {
                                       player.setHealth(player.getMaxHealth());
                                 }
                           } else {
-                                enemy.altHealth((playerHand.getCard(cardToPlay)).getDamageValue());
+                                enemy.altHealth((playerHand.getCard(card)).getDamageValue());
                           }
                           playerHand.getDeckList().remove(playerHand.getCard(card));
 
@@ -271,9 +271,9 @@ public class Battle {
                     int randomCard3 = rand3.nextInt(enemy.getDeck().getDeckList().size());
 
                     //Prints the descriptions of all 3 cards
-                    System.out.println(enemy.getDeckList().getCard(randomCard1).showCardDescription());
-                    System.out.println(enemy.getDeckList().getCard(randomCard2).showCardDescription());
-                    System.out.println(enemy.getDeckList().getCard(randomCard3).showCardDescription());
+                    System.out.println(enemy.getDeck().getDeckList().getCard(randomCard1).showCardDescription());
+                    System.out.println(enemy.getDeck().getDeckList().getCard(randomCard2).showCardDescription());
+                    System.out.println(enemy.getDeck().getDeckList().getCard(randomCard3).showCardDescription());
                     System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
 
                     //Checks for which card you would like to add
@@ -282,13 +282,13 @@ public class Battle {
 
                     if (cardToAdd == "1")
                     {
-                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard1), 1);
+                          player.getDeck().getDeckList().addCard(enemy.getDeck().getDeckList().getCard(randomCard1), 1);
                     } else if (cardToAdd == "2") {
-                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard2), 1);
+                          player.getDeck().getDeckList().addCard(enemy.getDeck().getDeckList().getCard(randomCard2), 1);
                     } else if (cardToAdd == "3") {
-                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard3), 1);
+                          player.getDeck().getDeckList().addCard(enemy.getDeck().getDeckList().getCard(randomCard3), 1);
                     } else {
-                          player.getDeckList().addCard(enemy.getDeckList().getCard(randomCard1), 1);
+                          player.getDeck().getDeckList().addCard(enemy.getDeck().getDeckList().getCard(randomCard1), 1);
                     }
               }
               return victory;

@@ -38,8 +38,8 @@ public class Player {
         this.maxEnergy = 3;
         this.remainingEnergy = 3;
         this.block = 0;
-        playerDeck.addCard(new Card("SLASH", 1, 6, 0, 0),5);
-        playerDeck.addCard(new Card("GUARD", 1, 0, 5, 0),5);
+        playerDeck.addCard(new Card("SLASH", 1, 6, 0),5);
+        playerDeck.addCard(new Card("GUARD", 1, 0, 5),5);
     }
 
     /**
@@ -61,8 +61,8 @@ public class Player {
         this.maxEnergy = 3;
         this.remainingEnergy = 3;
         this.block = 0;
-        this.playerDeck.addCard(new Card("SLASH", 1, 6, 0, 0),5);
-        this.playerDeck.addCard(new Card("GUARD", 1, 0, 5, 0),4);
+        this.playerDeck.addCard(new Card("SLASH", 1, 6, 0),5);
+        this.playerDeck.addCard(new Card("GUARD", 1, 0, 5),4);
     }
 
 

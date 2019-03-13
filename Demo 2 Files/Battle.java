@@ -179,12 +179,12 @@ public class Battle
             }
             if ((playerHand.getCard(card).getDamageValue() < 0))
             {
-                if ((player.getRemainingHealth() - playerHand.getCard(card).getDamageValue) >= player.getmaxHealth())
+                if ((player.getRemainingHealth() - playerHand.getCard(card).getDamageValue()) >= player.getMaxHealth())
                 {
-                    player.altHealth(player.getmaxHealth());
+                    player.altHealth(player.getMaxHealth());
                     playerHand.getDeckList().remove(playerHand.getCard(card));
                 }
-                if ((player.getRemainingHealth() - playerHand.getCard(card).getDamageValue) <= player.getmaxHealth())
+                if ((player.getRemainingHealth() - playerHand.getCard(card).getDamageValue()) <= player.getMaxHealth())
                 {
                 player.altHealth((playerHand.getCard(card)).getDamageValue());
                 playerHand.getDeckList().remove(playerHand.getCard(card));

@@ -148,7 +148,7 @@ public class Battle
         while(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0 && !victory)
         {
             System.out.print("you have the following cards in your hands ");
-            System.out.println("Make sure to type the card name in all caps as shown or we will pick the first card in the deck. type 'pass' to skip your turn |");
+            System.out.println("type 'pass' to skip your turn |");
             // shows you your cards.
             for(int i = 0; i < playerHand.getDeckList().size(); i++)
             {

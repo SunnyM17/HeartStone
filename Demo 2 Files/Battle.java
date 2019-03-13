@@ -123,6 +123,7 @@ public class Battle {
                           //Current "AI" just randomly selects cards from hand to play
                           Random rand = new Random();
                           int cardToPlay = rand.nextInt(enemyHand.getDeckList().size());
+                          
                           //Keeps playing cards while player is not dead
                           if (player.getRemainingHealth() > 0)
                           {

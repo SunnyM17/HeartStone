@@ -74,7 +74,7 @@ public class main extends Application {
         Enemy Minotaur = new Enemy("MINOTAUR", 90, 4, MinotaurDeck);
 
 
-        //ROAD TO ASCENSION : BEGIN!
+        //Begins
         System.out.println("Please input your name.");
         Scanner keyboard = new Scanner(System.in);
         String playerName = keyboard.nextLine();
@@ -106,7 +106,7 @@ public class main extends Application {
         }
 
         //Determines if player is defeated or victorious
-        if (Player1.getRemainingHealth() > 0)
+        if (victory = true)
         {
             System.out.println("Congratulations, you won!");
         }

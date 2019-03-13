@@ -109,7 +109,7 @@ public class Battle
                     if(noCard == 999)
                     {
                         //System.out.println("Enemy passed");
-                        enemy.setMaxEnergy(0);
+                        enemy.setRemainingEnergy(0);
                         break;
                     }
                     Random rando = new Random();

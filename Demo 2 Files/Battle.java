@@ -53,8 +53,8 @@ public class Battle
             enemy.setBlock(0);
         }
         
-        player.setMaxEnergy(player.getMaxEnergy());
-        enemy.setMaxEnergy(enemy.getMaxEnergy());
+        player.setRemainingEnergy(player.getMaxEnergy());
+        enemy.setRemainingEnergy(enemy.getMaxEnergy());
 
         //Step 2: Each combatant draws 5 cards from their deck 
         for (int x = 0; x < 6; x++)

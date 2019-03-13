@@ -36,7 +36,7 @@ public class main extends Application {
         MageDeck.addCard(masterDeck.getCard("GUARD"),3);
         MageDeck.addCard(masterDeck.getCard("FIRE BALL"),3);
         MageDeck.addCard(masterDeck.getCard("ICE BLOCK"),3);
-        MageDeck.addCard(masterDeck.getCard("HEALING WAVE"),3)
+        MageDeck.addCard(masterDeck.getCard("HEALING WAVE"),3);
 
         //Enemy Deck(Minotaur)
         Deck MinotaurDeck = new Deck();

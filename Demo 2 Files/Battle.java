@@ -127,6 +127,9 @@ public class Battle
                     enemy.altBlock(enemyHand.getCard(cardToPlay).getBlockValue());
                     if ((enemyHand.getCard(cardToPlay)).getDamageValue() < 0) {
                         enemy.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
+                        if (enemy.getRemainingHealth() > enemy.getMaxHealth()) {
+                            enemy.setHealth(enemy.getMaxHealth());
+                        }
                     } else {
                         player.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
                     }
@@ -199,6 +202,9 @@ public class Battle
             }
             if ((playerHand.getCard(cardToPlay)).getDamageValue() < 0) {
                 player.altHealth((playerHand.getCard(cardToPlay)).getDamageValue());
+                if (player.getRemainingHealth() > player.getMaxHealth()) {
+                    player.setHealth(player.getMaxHealth());
+                }
             } else {
                 enemy.altHealth((playerHand.getCard(cardToPlay)).getDamageValue());
             }
@@ -221,6 +227,9 @@ public class Battle
         }
         System.out.println("------------------------------------------------------------------------------------------------------------");
       }
+    if (victory == true) {
+        rand1
+    }
     return victory;
     }
 }

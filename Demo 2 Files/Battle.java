@@ -160,7 +160,7 @@ public class Battle
             String card = x.nextLine();
             card = card.toUpperCase();
             
-            if (card.equals("pass"))
+            if (card.equals("PASS"))
             {
                 System.out.println("YOU PASSED");
                 break;

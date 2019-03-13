@@ -158,6 +158,7 @@ public class Battle
             System.out.println();
             Scanner x = new Scanner(System.in);
             String card = x.nextLine();
+            card = card.toUpperCase();
             
             if (card.equals("pass"))
             {
@@ -165,16 +166,15 @@ public class Battle
                 break;
             }
             
-            for(int i = 1; i <= playerHand.getDeckList().size(); i++)
+            for(int r = 1; r <= playerHand.getDeckList().size(); r++)
             {
-                if()
+                if(card.equals("" + r))
+                {
+                    card = playerHand.getCard(r-1).getCardName();
+                    break;
+                }
             }
-            
-            for(int i = 1; i <= playerHand.getDeckList().size(); i++)
-            {
-                
-            }
-            
+
             if (playerHand.getCard(card).getEnergyCost() > player.getRemainingEnergy())
             {
                 System.out.println("NOT ENOUGH ENERGY");

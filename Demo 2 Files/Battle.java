@@ -69,7 +69,7 @@ public class Battle
               
             }
           }
-          if (ongDeckE.getDeckList().size() < 5) 
+          if (ongDeckE.getDeckList().size() < 5)
           {
             for (int z = 0; z < enemyDiscard.getDeckList().size(); z++)
             {
@@ -98,7 +98,7 @@ public class Battle
           }     
         }
         //Step 3: Enemy randomly chooses cards from hand to play, while energy is available
-        while(enemy.getRemainingHealth() > 0 && enemyHand.getDeckList().size() > 0 && enemy.getRemainingEnergy() > 0 && victory == false)//Enemy keeps playing cards while energy and cards remain
+        while(enemy.getRemainingHealth() > 0 && enemyHand.getDeckList().size() > 0 && enemy.getRemainingEnergy() > 0 && !victory)//Enemy keeps playing cards while energy and cards remain
         {
             Random rand = new Random();
             int cardToPlay = rand.nextInt(enemyHand.getDeckList().size());
@@ -143,8 +143,9 @@ public class Battle
         blockTurnE += 1;
         blockTurnP = 0;
         System.out.println("------------------------------------------------------------------------------------------------------------");
+
         
-        while(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0 && victory == false)
+        while(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0 && !victory)
         {
             System.out.print("you have the following cards in your hands ");
             System.out.println("Make sure to type the card name in all caps as shown or we will pick the first card in the deck. type 'pass' to skip your turn |");
@@ -164,6 +165,11 @@ public class Battle
                 break;
             }
             
+            for(int i = 1; i <= playerHand.getDeckList().size(); i++)
+            {
+                
+            }
+            
             if (playerHand.getCard(card).getEnergyCost() > player.getRemainingEnergy())
             {
                 System.out.println("NOT ENOUGH ENERGY");
@@ -177,24 +183,8 @@ public class Battle
             {
                 blockTurnP += 1;
             }
-            if ((playerHand.getCard(card).getDamageValue() < 0))
-            {
-                if ((player.getRemainingHealth() - playerHand.getCard(card).getDamageValue()) >= player.getMaxHealth())
-                {
-                    player.altHealth(player.getMaxHealth());
-                    playerHand.getDeckList().remove(playerHand.getCard(card));
-                }
-                if ((player.getRemainingHealth() - playerHand.getCard(card).getDamageValue()) <= player.getMaxHealth())
-                {
-                player.altHealth((playerHand.getCard(card)).getDamageValue());
-                playerHand.getDeckList().remove(playerHand.getCard(card));
-                } 
-            }
-            if (playerHand.getCard(card).getDamageValue() > 0)
-            {
             enemy.altHealth((playerHand.getCard(card)).getDamageValue());
             playerHand.getDeckList().remove(playerHand.getCard(card));
-            }
             if (enemy.getRemainingHealth() <= 0 )
             {
                 enemy.setHealth(0);
@@ -209,9 +199,7 @@ public class Battle
             System.out.println();        
         }
         System.out.println("------------------------------------------------------------------------------------------------------------");
-        
       }
-
     return victory;
     }
 }

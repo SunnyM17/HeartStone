@@ -73,7 +73,7 @@ public class main extends Application
         boi0.show();
         // intro or whatever
         boolean victory = true;
-        while (victory == true)
+        while (victory)
         {
         Battle battle0 = new Battle();
         victory = battle0.battle(Player1, GiantRat);
@@ -86,10 +86,11 @@ public class main extends Application
         break;
         }
         
-        if (victory == true)
+        if (Player1.getRemainingHealth() > 0)
         {
             System.out.println("YAAAAY YOU BEAT THE GAME GOOD JOB");
-        }else
+        }
+        else
         {
             System.out.println("AWWWW, YOU'RE DEAD. TRY AGAIN!");
         }

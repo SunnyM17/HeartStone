@@ -176,6 +176,10 @@ public class Enemy {
             remainingHealth -= (amount - block);
             block = 0;
        }
+       else if (amount < 0)
+       {
+         remainingHealth -= (amount);
+       }
        else
        {
            if(block >= amount)

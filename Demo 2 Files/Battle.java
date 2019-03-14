@@ -260,7 +260,7 @@ public class Battle {
               }
 
               //If you win, after the battle you get to select a card to add to your deck, choose from 3 random cards of your opponent's deck.
-              if (victory == true)
+              if (player.getRemainingHealth() > 0)
               {
                     //Randomly generates 3 cards from enemy deck
                     Random rand1 = new Random();

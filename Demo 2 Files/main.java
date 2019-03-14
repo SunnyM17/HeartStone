@@ -81,9 +81,7 @@ public class main {
         }
 
         //Determines if player is defeated or victorious
-        //Doesn't currently work
-        /**
-        if (victory = true)
+        if (Player1.getRemainingHealth() > 0)
         {
             System.out.println("Congratulations, you won!");
         }
@@ -91,7 +89,6 @@ public class main {
         {
             System.out.println("Sorry, you lost. Try again?");
         }
-        **/
     }
 
     

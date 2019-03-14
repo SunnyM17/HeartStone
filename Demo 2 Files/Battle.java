@@ -278,18 +278,20 @@ public class Battle {
 
                     //Checks for which card you would like to add
                     Scanner x2 = new Scanner(System.in);
-                    String cardToAdd = x2.nextLine();
+                    int cardToAdd = x2.nextInt();
 
-                    if (cardToAdd == "1")
+                    if (cardToAdd == 1)
                     {
                           player.getDeck().addCard(enemy.getDeck().getCard(randomCard1), 1);
-                    } else if (cardToAdd == "2") {
+                    } else if (cardToAdd == 2) {
                           player.getDeck().addCard(enemy.getDeck().getCard(randomCard2), 1);
-                    } else if (cardToAdd == "3") {
+                    } else if (cardToAdd == 3) {
                           player.getDeck().addCard(enemy.getDeck().getCard(randomCard3), 1);
                     } else {
                           player.getDeck().addCard(enemy.getDeck().getCard(randomCard1), 1);
                     }
+                    System.out.println();
+                    System.out.println("------------------------------------------------------------------------------------------------------------");
               }
               return victory;
         }

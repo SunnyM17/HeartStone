@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.FontWeight;
 import javafx.geometry.HPos;
 import javafx.scene.control.Button;
@@ -16,6 +17,14 @@ import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.text.*;
+import javafx.scene.control.*;
+import javafx.scene.*;
+import javafx.scene.paint.*;
+import javafx.scene.shape.*;
+import com.sun.javafx.geom.Rectangle;
+import com.sun.media.jfxmediaimpl.platform.Platform;
+import org.w3c.dom.events.Event;
+import javafx.scene.layout.StackPane;
 
 public class GUI extends Application
 {
@@ -57,6 +66,7 @@ public class GUI extends Application
         Label playerName = new Label("Player Name:" + player.getPlayerName());
         label.setAlignment(Pos.CENTER);
         label.getChildren().add(playerName);
+        
 
         setName.setOnAction(new EventHandler<ActionEvent>()
         {
@@ -68,17 +78,20 @@ public class GUI extends Application
                 playerName.setText("Player Name: "+player.getPlayerName());
                 
             }
-            
+                    
         });
+
         root.setTop(label);
         root.setCenter(textField);
         root.setBottom(button);
         primaryStage.setScene(scene);
-        primaryStage.show();
+        
+        
+        
 
         BorderPane root2 = new BorderPane();
-        Scene scene2 = new Scene(root2, 800,800);
-        primaryStage.setScene(scene2);
+        Scene scene3 = new Scene(root2, 800,800);
+        primaryStage.setScene(scene3);
         primaryStage.setTitle("Ascension");
 
         HBox playerInfo = new HBox();
@@ -90,12 +103,7 @@ public class GUI extends Application
         playerInfo.getChildren().add(playerHealthLabel);
         playerInfo.getChildren().add(playerEnergyLabel);
 
-        root2.setTop(playerInfo);
-        primaryStage.setScene(scene2);
-
-        
-
-
+         
        
         primaryStage.show();
 

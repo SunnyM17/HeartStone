@@ -274,6 +274,7 @@ public class Battle {
                     System.out.println(enemy.getDeck().getCard(randomCard1).showCardDescription());
                     System.out.println(enemy.getDeck().getCard(randomCard2).showCardDescription());
                     System.out.println(enemy.getDeck().getCard(randomCard3).showCardDescription());
+                    System.out.println();
                     System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
 
                     //Checks for which card you would like to add

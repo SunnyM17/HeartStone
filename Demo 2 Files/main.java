@@ -8,7 +8,7 @@ import java.util.Random;
 * game by utilizing the methods and objects of battle, player,
 * enemy, card and deck classes.
 */
-public class main extends Application {
+public class main {
 
     public static void main(String[] args) {
          //The master deck is a collection of all the cards in the game

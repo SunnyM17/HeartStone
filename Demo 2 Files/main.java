@@ -64,7 +64,7 @@ public class main {
 
         //Player undergoes one battle against each enemy
         boolean victory = true;
-        while (victory)
+        while (victory == true)
         {
              //First Battle : Player vs GiantRat
              Battle battle0 = new Battle();

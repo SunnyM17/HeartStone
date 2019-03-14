@@ -81,6 +81,8 @@ public class main {
         }
 
         //Determines if player is defeated or victorious
+        //Doesn't currently work
+        /**
         if (victory = true)
         {
             System.out.println("Congratulations, you won!");
@@ -89,6 +91,7 @@ public class main {
         {
             System.out.println("Sorry, you lost. Try again?");
         }
+        **/
     }
 
     

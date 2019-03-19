@@ -17,6 +17,11 @@ public class Enemy extends Combatant{
      super(name, maxHealth, maxEnergy, deck);
    }
 
+   public Enemy(Enemy toCopy)
+   {
+       super(toCopy);
+   }
+   
    public String getEnemyInformation()
    {
         return (super.getName() + ": "+super.getRemainingHealth()+"/"+super.getMaxHealth()+", " + "block: "+ super.getBlock());

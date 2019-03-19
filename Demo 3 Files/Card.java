@@ -17,7 +17,6 @@ public class Card {
 
 
   //Constructor
-  
   /**
   * This method creates a empty default Card object.
   */
@@ -55,12 +54,16 @@ public class Card {
   }
 
   /**
-  * Sets a new energy cost requirment to the card.
+  * Sets a new energy cost requirment to the card if the value in
+  * param energyCost is bigger than 0 and less or equal to 5.
   * @param energyCost A value to update the energy cost.
   */
   public void setEnergyCost(int energyCost)
   {
-    this.energyCost = energyCost;
+        if (energyCost > 0 && energyCost <= 5)
+        {
+             this.energyCost = energyCost;
+        }
   }
 
   /**
@@ -80,7 +83,6 @@ public class Card {
   {
     this.blockValue = blockValue;
   }
-
 
 
   //Accesor Methods

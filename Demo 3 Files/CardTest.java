@@ -14,15 +14,20 @@ public class CardTest
             c.setCardName("Brawl");
             assertEquals("The card name expected was", "Brawl", c.getCardName());
       }
-      
       @Test
-      public void test_setEnergyCost_newCost()
+      public void test_setEnergyCost_maxCost()
       {
             Card c = new Card();
-            c.setEnergyCost(4);
-            assertEquals("The card energy cost expected was", 4, c.getEnergyCost(), 0.000001);
+            c.setEnergyCost(5);
+            assertEquals("The card energy cost expected was", 5, c.getEnergyCost(), 0.000001);
       }
-      
+      @Test
+      public void test_setEnergyCost_overCost()
+      {
+            Card c = new Card();
+            c.setEnergyCost(7);
+            assertEquals("The card energy cost expected was", 0, c.getEnergyCost(), 0.000001);
+      }
       @Test
       public void test_setDamageValue_newDamage()
       {
@@ -30,7 +35,6 @@ public class CardTest
             c.setDamageValue(15);
             assertEquals("The card damage value expected was", 15, c.getDamageValue(),0.000001);
       }
-      
       @Test
       public void test_setBlockValue_newBlock()
       {
@@ -38,7 +42,6 @@ public class CardTest
             c.setBlockValue(15);
             assertEquals("The card block value expected was", 15, c.getBlockValue(), 0.000001);
       }
-      
       @Test
       public void test_showCardDescription()
       {

@@ -17,6 +17,13 @@ public class Card {
 
 
   //Constructor
+  
+  /**
+  * This method creates a empty default Card object.
+  */
+  public Card ()
+  {
+  }
 
   /**
   * This method creates a Card object to store the card name, energy
@@ -27,7 +34,8 @@ public class Card {
   * @param blockValue The defence value of the card to block against
   * incoming enemy attacks.
   */
-  public Card (String cardName, int energyCost, int damageValue, int blockValue) {
+  public Card (String cardName, int energyCost, int damageValue, int blockValue) 
+  {
     this.cardName = cardName;
     this.energyCost = energyCost;
     this.damageValue = damageValue;

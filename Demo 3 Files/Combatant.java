@@ -36,6 +36,17 @@ public class Combatant {
     this.deck = deck;
   }
 
+  public Combatant(Combatant toCopy)
+  {
+    this.name = toCopy.name;
+    this.maxHealth = toCopy.maxHealth;
+    this.remainingHealth = toCopy.maxHealth;
+    this.maxEnergy = toCopy.maxEnergy;
+    this.remainingEnergy = toCopy.maxEnergy;
+    this.block = 0;
+    this.deck = toCopy.deck;
+  }
+  
   // Setter Methods
 
   /**

@@ -8,7 +8,7 @@ import java.util.Random;
 * game by utilizing the methods and objects of battle, player,
 * enemy, card and deck classes.
 */
-public class main {
+public class main{
 
     public static void main(String[] args) {
          //The master deck is a collection of all the cards in the game
@@ -63,32 +63,21 @@ public class main {
 
 
         //Player undergoes one battle against each enemy
-        boolean victory = true;
-        while (victory == true)
+        BATTLE1 battle = new BATTLE1(Player1, GiantRat);
+        battle.initializeOngDeckP(Player1);
+        battle.initializeOngDeckE(GiantRat);
+        battle.initializeEHand(GiantRat);
+        battle.initializePHand(Player1);
+        while(Player1.getRemainingHealth() > 0 || GiantRat.getRemainingHealth() > 0)
         {
-             //First Battle : Player vs GiantRat
-             Battle battle0 = new Battle();
-             victory = battle0.battle(Player1, GiantRat);
-
-             //Second Battle : Player vs Mage
-             Battle battle1 = new Battle();
-             victory = battle1.battle(Player1, Mage);
-
-             //Third Battle : Player vs Minotaur
-             Battle battle2 = new Battle();
-             victory = battle2.battle(Player1, Minotaur);
-             break;
+            battle.enemyTurn();
+            System.out.println("enemy turn complete");
+            battle.swichTurn(true, false);
+            System.out.println("st complete");
+            battle.swichTurn(false, true);
+            System.out.println("st2 complete");
         }
-
-        //Determines if player is defeated or victorious
-        if (Player1.getRemainingHealth() > 0)
-        {
-            System.out.println("Congratulations, you won!");
-        }
-        else
-        {
-            System.out.println("Sorry, you lost. Try again?");
-        }
+        
     }
 
     

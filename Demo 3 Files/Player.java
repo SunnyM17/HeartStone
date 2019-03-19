@@ -11,7 +11,7 @@ public class Player extends Combatant {
 
     /**
     * This method creates a Player object to store the max
-    * and reamining health, max and remaining energy, block value, and
+    * and remining health, max and remaining energy, block value, and
     * a card deck unique to the player.
     * <p>
     * <b>Note:</b> The max and remaining health is initiated to 80, the
@@ -44,7 +44,11 @@ public class Player extends Combatant {
         super.getDeck().addCard(new Card("GUARD", 1, 0, 5),5);
     }
 
-
+    public Player(Player toCopy)
+    {
+        super(toCopy);
+    }
+       
     //Accesor methods
 
        /**

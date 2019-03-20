@@ -64,18 +64,46 @@ public class main{
 
         //Player undergoes one battle against each enemy
         BATTLE1 battle = new BATTLE1(Player1, GiantRat);
-        battle.initializeOngDeckP(Player1);
-        battle.initializeOngDeckE(GiantRat);
-        battle.initializeEHand(GiantRat);
-        battle.initializePHand(Player1);
+
         while(Player1.getRemainingHealth() > 0 || GiantRat.getRemainingHealth() > 0)
         {
             battle.enemyTurn();
-            System.out.println("enemy turn complete");
-            battle.swichTurn(true, false);
-            System.out.println("st complete");
-            battle.swichTurn(false, true);
-            System.out.println("st2 complete");
+            System.out.println("Enemy played " + battle.initializeEHand(GiantRat).getCard(battle.getenemyCardIndex()).showCardDescription());
+            System.out.println();
+            System.out.println(Player1.getPlayerInformation());
+            System.out.println(GiantRat.getEnemyInformation());
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            //battle.swichTurn(true, false);
+            System.out.print("You have the following cards in your hand: ");
+            System.out.println("Enter the name of the card to play it. |");
+            for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
+            {
+                System.out.print(battle.initializePHand(Player1).getCard(i).getCardName() + " | ");
+            }
+            System.out.println();
+            String card = keyboard.nextLine().toUpperCase();
+            for(int r = 1; r <= battle.initializePHand(Player1).getDeckList().size(); r++)
+            {
+                if(card.equals("" + r))
+                {
+                    card = battle.initializePHand(Player1).getCard(r-1).getCardName();
+                    break;
+                }
+            }
+            battle.playerTurn(card);
+            System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
+            System.out.println();
+            System.out.println(Player1.getPlayerInformation());
+            System.out.println(GiantRat.getEnemyInformation());
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            //battle.swichTurn(false, true);
+            
+            
+
         }
         
     }

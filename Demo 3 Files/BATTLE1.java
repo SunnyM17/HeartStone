@@ -9,6 +9,10 @@ public class BATTLE1 {
     {
         enemy = new Enemy(enemy1);
         player = new Player(player1);
+        initializeOngDeckP(player1);
+        initializeOngDeckE(enemy1);
+        initializeEHand(enemy1);
+        initializePHand(player1);
     }
     
     private int blockTurnP = 1;
@@ -25,6 +29,9 @@ public class BATTLE1 {
     //A deck for each combatant containing the cards in the discard pile
     private Deck playerDiscard = new Deck();
     private Deck enemyDiscard = new Deck();
+
+    //Integer that stores the index of card played during the turn from ongoing hand.
+    private int indexEnemyHand;
     
     public Deck initializePHand(Player player)
     {
@@ -81,13 +88,13 @@ public class BATTLE1 {
         return ongDeckE;
     }
     
-    public boolean playerTurn()
+    public boolean playerTurn(String card)
     {
         if (blockTurnP % 2 == 0)
         {
             player.setBlock(0);
         }
-        int card = 0;
+        
 
         //If the player selects a card they cannot afford to play
         if (playerHand.getCard(card).getEnergyCost() > player.getRemainingEnergy())
@@ -114,6 +121,7 @@ public class BATTLE1 {
               enemy.altHealth((playerHand.getCard(card)).getDamageValue());
         }
         playerHand.getDeckList().remove(playerHand.getCard(card));
+
         if(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0)
         {
             return false;
@@ -144,6 +152,7 @@ public class BATTLE1 {
               if (noCard != 999)
               {
                     //If the card is played alters all relavant stats by given amounts
+                    indexEnemyHand = cardToPlay;
                     enemyDiscard.addCard(enemyHand.getCard(cardToPlay), 1);
                     enemy.altEnergy(enemyHand.getCard(cardToPlay).getEnergyCost());
                     enemy.altBlock(enemyHand.getCard(cardToPlay).getBlockValue());
@@ -193,10 +202,13 @@ public class BATTLE1 {
         
         while(turne == true && victory == false)
         {
-            turne = playerTurn();
+            turne = playerTurn("");
         }
         
         blockTurnE += 1;
     }
-    
+    public int getenemyCardIndex()
+    {
+        return indexEnemyHand;
+    }
 }

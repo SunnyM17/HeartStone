@@ -99,7 +99,6 @@ public class main{
             System.out.println(GiantRat.getEnemyInformation());
             System.out.println();
             System.out.println();
-            System.out.println();
             //battle.swichTurn(false, true);
             
             

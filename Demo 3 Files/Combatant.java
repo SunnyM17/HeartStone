@@ -149,8 +149,8 @@ public class Combatant {
   }
 
   /**
-  * A method to obtain the enemy's card deck.
-  * @return Deck This returns the enemy's deck.
+  * A method to obtain the combatant's card deck.
+  * @return Deck This returns the combatant's deck.
   */
   public Deck getDeck()
   {

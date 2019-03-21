@@ -9,6 +9,89 @@ import java.util.Random;
 * enemy, card and deck classes.
 */
 public class main{
+    
+
+    public static void startBattle(String playerName, Player Player1, Enemy enemy)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        while (Player1.getRemainingHealth() > 0 && enemy.getRemainingHealth() > 0)
+            {
+            BATTLE1 battle = new BATTLE1(Player1, enemy);
+            battle.enemyTurn(Player1, enemy);
+            System.out.println("Enemy played " + battle.initializeEHand(enemy).getCard(battle.getenemyCardIndex()).showCardDescription());
+            System.out.println();
+            System.out.println(Player1.getPlayerInformation());
+            System.out.println(enemy.getEnemyInformation());
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            battle.swichTurn(true, false);
+            System.out.print("You have the following cards in your hand: ");
+            System.out.println("Enter the name of the card to play it. |");
+            for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
+            {
+                System.out.print(battle.initializePHand(Player1).getCard(i).getCardName() + " | ");
+            }
+            System.out.println();
+            String card = keyboard.nextLine().toUpperCase();
+            for(int r = 1; r <= battle.initializePHand(Player1).getDeckList().size(); r++)
+            {
+                if(card.equals("" + r))
+                {
+                    card = battle.initializePHand(Player1).getCard(r-1).getCardName();
+                    break;
+                }
+            }
+            
+            System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
+            battle.playerTurn(card, Player1, enemy);
+            System.out.println();
+            System.out.println(Player1.getPlayerInformation());
+            System.out.println(enemy.getEnemyInformation());
+            System.out.println();
+           
+            battle.swichTurn(false, true);
+            if (enemy.getRemainingHealth() <= 0)
+            {
+                Random rand1 = new Random();
+                int randomCard1 = rand1.nextInt(battle.initializeEHand(enemy).getDeckList().size());
+                Random rand2 = new Random();
+                int randomCard2 = rand2.nextInt(battle.initializeEHand(enemy).getDeckList().size());
+                Random rand3 = new Random();
+                int randomCard3 = rand3.nextInt(battle.initializeEHand(enemy).getDeckList().size());
+
+                System.out.println(enemy.getDeck().getCard(randomCard1).showCardDescription());
+                System.out.println(enemy.getDeck().getCard(randomCard2).showCardDescription());
+                System.out.println(enemy.getDeck().getCard("CLAW").showCardDescription());
+                System.out.println();
+                System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
+
+                //Checks for which card you would like to add
+                Scanner x2 = new Scanner(System.in);
+                    
+                String cardToAdd = x2.nextLine();
+
+                if (cardToAdd.equals("1"))
+                {
+                      Player1.getDeck().addCard(enemy.getDeck().getCard(randomCard1), 1);
+                } else if (cardToAdd.equals("2")) {
+                      Player1.getDeck().addCard(enemy.getDeck().getCard(randomCard2), 1);
+                } else if (cardToAdd.equals("3")) {
+                      Player1.getDeck().addCard(enemy.getDeck().getCard(randomCard3), 1);
+                } 
+                else{
+                      Player1.getDeck().addCard(enemy.getDeck().getCard(randomCard1), 1);
+                }
+                System.out.println();
+                System.out.println("------------------------------------------------------------------------------------------------------------");
+            }
+        }
+
+
+            
+
+             
+    }
 
 
 
@@ -63,177 +146,14 @@ public class main{
         //Initializing the player
         Player Player1 = new Player(playerName);
 
-        
-        //Player undergoes one battle against each enemy
-        
-
-        while(Player1.getRemainingHealth() > 0)
+        while (Player1.getRemainingHealth() > 0)
         {
-            // Boss 1
-            while (Player1.getRemainingHealth() > 0 && GiantRat.getRemainingHealth() > 0)
-            {
-            BATTLE1 battle = new BATTLE1(Player1, GiantRat);
-            battle.enemyTurn(Player1, GiantRat);
-            System.out.println("Enemy played " + battle.initializeEHand(GiantRat).getCard(battle.getenemyCardIndex()).showCardDescription());
-            System.out.println();
-            System.out.println(Player1.getPlayerInformation());
-            System.out.println(GiantRat.getEnemyInformation());
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            battle.swichTurn(true, false);
-            System.out.print("You have the following cards in your hand: ");
-            System.out.println("Enter the name of the card to play it. |");
-            for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
-            {
-                System.out.print(battle.initializePHand(Player1).getCard(i).getCardName() + " | ");
-            }
-            System.out.println();
-            String card = keyboard.nextLine().toUpperCase();
-            for(int r = 1; r <= battle.initializePHand(Player1).getDeckList().size(); r++)
-            {
-                if(card.equals("" + r))
-                {
-                    card = battle.initializePHand(Player1).getCard(r-1).getCardName();
-                    break;
-                }
-            }
-            
-            System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
-            battle.playerTurn(card, Player1, GiantRat);
-            System.out.println();
-            System.out.println(Player1.getPlayerInformation());
-            System.out.println(GiantRat.getEnemyInformation());
-            System.out.println();
-           
-            battle.swichTurn(false, true);
-            if (GiantRat.getRemainingHealth() <= 0)
-            {
-                Random rand1 = new Random();
-                int randomCard1 = rand1.nextInt(battle.initializeEHand(GiantRat).getDeckList().size());
-                Random rand2 = new Random();
-                int randomCard2 = rand2.nextInt(battle.initializeEHand(GiantRat).getDeckList().size());
-                Random rand3 = new Random();
-                int randomCard3 = rand3.nextInt(battle.initializeEHand(GiantRat).getDeckList().size());
-
-                System.out.println(GiantRat.getDeck().getCard(randomCard1).showCardDescription());
-                System.out.println(GiantRat.getDeck().getCard(randomCard2).showCardDescription());
-                System.out.println(GiantRat.getDeck().getCard("CLAW").showCardDescription());
-                System.out.println();
-                System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
-
-                //Checks for which card you would like to add
-                Scanner x2 = new Scanner(System.in);
-                    
-                String cardToAdd = x2.nextLine();
-
-                if (cardToAdd.equals("1"))
-                {
-                      Player1.getDeck().addCard(GiantRat.getDeck().getCard(randomCard1), 1);
-                } else if (cardToAdd.equals("2")) {
-                      Player1.getDeck().addCard(GiantRat.getDeck().getCard(randomCard2), 1);
-                } else if (cardToAdd.equals("3")) {
-                      Player1.getDeck().addCard(GiantRat.getDeck().getCard(randomCard3), 1);
-                } 
-                else{
-                      Player1.getDeck().addCard(GiantRat.getDeck().getCard(randomCard1), 1);
-                }
-                System.out.println();
-                System.out.println("------------------------------------------------------------------------------------------------------------");
-            }
-        }
-
-
-            
-
-            // Boss 2
-            while (Player1.getRemainingHealth() > 0 && Mage.getRemainingHealth() > 0)
-            {
-            BATTLE1 battle = new BATTLE1(Player1, Mage);
-            battle.enemyTurn(Player1, Mage);
-            System.out.println("Enemy played " + battle.initializeEHand(Mage).getCard(battle.getenemyCardIndex()).showCardDescription());
-            System.out.println();
-            System.out.println(Player1.getPlayerInformation());
-            System.out.println(Mage.getEnemyInformation());
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            battle.swichTurn(true, false);
-            System.out.print("You have the following cards in your hand: ");
-            System.out.println("Enter the name of the card to play it. |");
-            for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
-            {
-                System.out.print(battle.initializePHand(Player1).getCard(i).getCardName() + " | ");
-            }
-            System.out.println();
-            String card = keyboard.nextLine().toUpperCase();
-            for(int r = 1; r <= battle.initializePHand(Player1).getDeckList().size(); r++)
-            {
-                if(card.equals("" + r))
-                {
-                    card = battle.initializePHand(Player1).getCard(r-1).getCardName();
-                    break;
-                }
-            }
-            
-            System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
-            battle.playerTurn(card, Player1, Mage);
-            System.out.println();
-            System.out.println(Player1.getPlayerInformation());
-            System.out.println(Mage.getEnemyInformation());
-            System.out.println();
-            
-            battle.swichTurn(false, true);
-            }
-
-            // Boss 3
-            while (Player1.getRemainingHealth() > 0 && Minotaur.getRemainingHealth() > 0)
-            {
-            BATTLE1 battle = new BATTLE1(Player1, Minotaur);
-            battle.enemyTurn(Player1, Minotaur);
-            System.out.println("Enemy played " + battle.initializeEHand(Minotaur).getCard(battle.getenemyCardIndex()).showCardDescription());
-            System.out.println();
-            System.out.println(Player1.getPlayerInformation());
-            System.out.println(Minotaur.getEnemyInformation());
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            battle.swichTurn(true, false);
-            System.out.print("You have the following cards in your hand: ");
-            System.out.println("Enter the name of the card to play it. |");
-            for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
-            {
-                System.out.print(battle.initializePHand(Player1).getCard(i).getCardName() + " | ");
-            }
-            System.out.println();
-            String card = keyboard.nextLine().toUpperCase();
-            for(int r = 1; r <= battle.initializePHand(Player1).getDeckList().size(); r++)
-            {
-                if(card.equals("" + r))
-                {
-                    card = battle.initializePHand(Player1).getCard(r-1).getCardName();
-                    break;
-                }
-            }
-            
-            System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
-            battle.playerTurn(card, Player1, Minotaur);
-            System.out.println();
-            System.out.println(Player1.getPlayerInformation());
-            System.out.println(Minotaur.getEnemyInformation());
-            System.out.println();
-            
-            battle.swichTurn(false, true);
-            }  
-
-        System.out.println();
-        System.out.println("Congratulations, YOU WON!");
+            startBattle(playerName,Player1, GiantRat);
+            startBattle(playerName, Player1, Mage);
+            startBattle(playerName, Player1, Minotaur);
         }
         System.out.println();
         System.out.println();
         System.out.println("You lost. Try again");
-        
     }
-
-    
 }

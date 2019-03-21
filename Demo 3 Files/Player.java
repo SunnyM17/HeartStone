@@ -60,7 +60,7 @@ public class Player extends Combatant {
       */
        public String getPlayerInformation()
        {
-           return (super.getName() + ": "+super.getRemainingHealth() +"/"+super.getMaxHealth()+", " + " block: "+ super.getBlock() + ", " + "ENERGY: " + super.getRemainingEnergy() + "/"+super.getMaxEnergy());
+           return (super.getName() + ": "+super.getRemainingHealth() +"/"+super.getMaxHealth()+", " + " block: "+ super.getBlock()+"/10" + ", " + "ENERGY: " + super.getRemainingEnergy() + "/"+super.getMaxEnergy());
        }
 
 }

@@ -35,15 +35,18 @@ public class BATTLE1 {
     
     public Deck initializePHand(Player player)
     {
+        
         //Randomly selects cards to draw from player deck
         while(playerHand.getDeckList().size() < 5)
         {
+              
               Random rand = new Random();
               int randomDrawP = rand.nextInt(ongDeckP.getDeckList().size());
 
               //Adds drawn cards into player's hand
               playerHand.addCard((ongDeckP.getCard(randomDrawP)), 1);
               ongDeckP.getDeckList().remove(randomDrawP);
+              
         }
         
         return playerHand;
@@ -122,12 +125,16 @@ public class BATTLE1 {
         }
         playerHand.getDeckList().remove(playerHand.getCard(card));
 
+        
         if(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0)
         {
             return false;
         }
         return true;
+        
     }
+    
+
     
     public boolean enemyTurn()
     {
@@ -192,7 +199,7 @@ public class BATTLE1 {
       
       
   }
-    
+    /* Don't need it.
     public void swichTurn(boolean turnp, boolean turne)
     {
         while(turnp == true && victory == false)
@@ -206,9 +213,10 @@ public class BATTLE1 {
         }
         
         blockTurnE += 1;
-    }
+    }*/
     public int getenemyCardIndex()
     {
         return indexEnemyHand;
     }
+    
 }

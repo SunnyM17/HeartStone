@@ -63,10 +63,11 @@ public class main{
 
 
         //Player undergoes one battle against each enemy
-        BATTLE1 battle = new BATTLE1(Player1, GiantRat);
+        
 
         while(Player1.getRemainingHealth() > 0 || GiantRat.getRemainingHealth() > 0)
         {
+            BATTLE1 battle = new BATTLE1(Player1, GiantRat);
             battle.enemyTurn();
             System.out.println("Enemy played " + battle.initializeEHand(GiantRat).getCard(battle.getenemyCardIndex()).showCardDescription());
             System.out.println();
@@ -92,13 +93,12 @@ public class main{
                     break;
                 }
             }
-            battle.playerTurn(card);
             System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
             System.out.println();
             System.out.println(Player1.getPlayerInformation());
             System.out.println(GiantRat.getEnemyInformation());
             System.out.println();
-            System.out.println();
+            System.out.println("---------------------LOOP END------------------");
             //battle.swichTurn(false, true);
             
             

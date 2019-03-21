@@ -28,10 +28,10 @@ public class Combatant {
   
   public Combatant (String name, int maxHealth, int maxEnergy, Deck deck){
     this.name = name;
-    this.maxHealth = maxHealth;
-    this.remainingHealth = maxHealth;
-    this.maxEnergy = maxEnergy;
-    this.remainingEnergy = maxEnergy;
+    setMaxHealth(maxHealth);
+    setHealth(maxHealth);
+    setMaxEnergy(maxEnergy);
+    setRemainingEnergy(maxEnergy);
     this.block = 0;
     this.deck = deck;
   }

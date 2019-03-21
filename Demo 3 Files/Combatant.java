@@ -199,6 +199,13 @@ public class Combatant {
   */
   public void altBlock(int amount)
   {
+    if ((block + amount) <= 10)
+    {
        block += amount;
+    }
+    if ((block + amount) > 10)
+    {
+      block = 10;
+    }
   }
 }

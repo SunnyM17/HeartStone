@@ -68,7 +68,7 @@ public class main{
         while(Player1.getRemainingHealth() > 0 || GiantRat.getRemainingHealth() > 0)
         {
             BATTLE1 battle = new BATTLE1(Player1, GiantRat);
-            battle.enemyTurn();
+            battle.enemyTurn(Player1, GiantRat);
             System.out.println("Enemy played " + battle.initializeEHand(GiantRat).getCard(battle.getenemyCardIndex()).showCardDescription());
             System.out.println();
             System.out.println(Player1.getPlayerInformation());

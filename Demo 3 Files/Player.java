@@ -42,6 +42,7 @@ public class Player extends Combatant {
         super(playerName, 80, 3, new Deck());
         super.getDeck().addCard(new Card("SLASH", 1, 6, 0),5);
         super.getDeck().addCard(new Card("GUARD", 1, 0, 5),5);
+        super.getDeck().addCard(new Card("HEAL", 1, -3, 0),5);
     }
 
     public Player(Player toCopy)

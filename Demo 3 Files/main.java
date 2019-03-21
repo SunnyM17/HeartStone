@@ -76,7 +76,7 @@ public class main{
             System.out.println();
             System.out.println();
             System.out.println();
-            //battle.swichTurn(true, false);
+            battle.swichTurn(true, false);
             System.out.print("You have the following cards in your hand: ");
             System.out.println("Enter the name of the card to play it. |");
             for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
@@ -94,12 +94,14 @@ public class main{
                 }
             }
             System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
+            battle.playerTurn(card, Player1, GiantRat);
             System.out.println();
             System.out.println(Player1.getPlayerInformation());
             System.out.println(GiantRat.getEnemyInformation());
             System.out.println();
+            System.out.println(GiantRat.getRemainingHealth());
             System.out.println("---------------------LOOP END------------------");
-            //battle.swichTurn(false, true);
+            battle.swichTurn(false, true);
             
             
 

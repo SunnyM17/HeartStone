@@ -199,21 +199,22 @@ public class BATTLE1 {
       
       
   }
-    /* Don't need it.
+    
     public void swichTurn(boolean turnp, boolean turne)
     {
         while(turnp == true && victory == false)
         {
-            turnp = enemyTurn();
+            turnp = enemyTurn(playero,enemyo);
         }
         
         while(turne == true && victory == false)
         {
-            turne = playerTurn("");
+            turne = playerTurn("",playero,enemyo);
         }
         
         blockTurnE += 1;
-    }*/
+    }
+
     public int getenemyCardIndex()
     {
         return indexEnemyHand;

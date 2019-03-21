@@ -93,6 +93,7 @@ public class main{
                     break;
                 }
             }
+            
             System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
             battle.playerTurn(card, Player1, GiantRat);
             System.out.println();

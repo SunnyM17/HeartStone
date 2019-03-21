@@ -10,6 +10,8 @@ import java.util.Random;
 */
 public class main{
 
+    
+
     public static void main(String[] args) {
          //The master deck is a collection of all the cards in the game
         Deck masterDeck = new Deck();
@@ -65,8 +67,11 @@ public class main{
         //Player undergoes one battle against each enemy
         
 
-        while(Player1.getRemainingHealth() > 0 && GiantRat.getRemainingHealth() > 0)
+        while(Player1.getRemainingHealth() > 0)
         {
+            // Boss 1
+            while (Player1.getRemainingHealth() > 0 && GiantRat.getRemainingHealth() > 0)
+            {
             BATTLE1 battle = new BATTLE1(Player1, GiantRat);
             battle.enemyTurn(Player1, GiantRat);
             System.out.println("Enemy played " + battle.initializeEHand(GiantRat).getCard(battle.getenemyCardIndex()).showCardDescription());
@@ -100,12 +105,93 @@ public class main{
             System.out.println(Player1.getPlayerInformation());
             System.out.println(GiantRat.getEnemyInformation());
             System.out.println();
-            System.out.println("---------------------LOOP END------------------");
+           
             battle.swichTurn(false, true);
-            
-            
+            }
 
+            // Boss 2
+            while (Player1.getRemainingHealth() > 0 && Mage.getRemainingHealth() > 0)
+            {
+            BATTLE1 battle = new BATTLE1(Player1, Mage);
+            battle.enemyTurn(Player1, Mage);
+            System.out.println("Enemy played " + battle.initializeEHand(Mage).getCard(battle.getenemyCardIndex()).showCardDescription());
+            System.out.println();
+            System.out.println(Player1.getPlayerInformation());
+            System.out.println(Mage.getEnemyInformation());
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            battle.swichTurn(true, false);
+            System.out.print("You have the following cards in your hand: ");
+            System.out.println("Enter the name of the card to play it. |");
+            for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
+            {
+                System.out.print(battle.initializePHand(Player1).getCard(i).getCardName() + " | ");
+            }
+            System.out.println();
+            String card = keyboard.nextLine().toUpperCase();
+            for(int r = 1; r <= battle.initializePHand(Player1).getDeckList().size(); r++)
+            {
+                if(card.equals("" + r))
+                {
+                    card = battle.initializePHand(Player1).getCard(r-1).getCardName();
+                    break;
+                }
+            }
+            
+            System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
+            battle.playerTurn(card, Player1, Mage);
+            System.out.println();
+            System.out.println(Player1.getPlayerInformation());
+            System.out.println(Mage.getEnemyInformation());
+            System.out.println();
+            
+            battle.swichTurn(false, true);
+            }
+
+            // Boss 3
+            while (Player1.getRemainingHealth() > 0 && Minotaur.getRemainingHealth() > 0)
+            {
+            BATTLE1 battle = new BATTLE1(Player1, Minotaur);
+            battle.enemyTurn(Player1, Minotaur);
+            System.out.println("Enemy played " + battle.initializeEHand(Minotaur).getCard(battle.getenemyCardIndex()).showCardDescription());
+            System.out.println();
+            System.out.println(Player1.getPlayerInformation());
+            System.out.println(Minotaur.getEnemyInformation());
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            battle.swichTurn(true, false);
+            System.out.print("You have the following cards in your hand: ");
+            System.out.println("Enter the name of the card to play it. |");
+            for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
+            {
+                System.out.print(battle.initializePHand(Player1).getCard(i).getCardName() + " | ");
+            }
+            System.out.println();
+            String card = keyboard.nextLine().toUpperCase();
+            for(int r = 1; r <= battle.initializePHand(Player1).getDeckList().size(); r++)
+            {
+                if(card.equals("" + r))
+                {
+                    card = battle.initializePHand(Player1).getCard(r-1).getCardName();
+                    break;
+                }
+            }
+            
+            System.out.println(playerName + " played " + battle.initializePHand(Player1).getCard(card).showCardDescription());
+            battle.playerTurn(card, Player1, Minotaur);
+            System.out.println();
+            System.out.println(Player1.getPlayerInformation());
+            System.out.println(Minotaur.getEnemyInformation());
+            System.out.println();
+            
+            battle.swichTurn(false, true);
+            }  
         }
+        System.out.println();
+        System.out.println();
+        System.out.println("You lost. Try again");
         
     }
 

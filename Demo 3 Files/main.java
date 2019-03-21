@@ -107,7 +107,44 @@ public class main{
             System.out.println();
            
             battle.swichTurn(false, true);
+            if (GiantRat.getRemainingHealth() <= 0)
+            {
+                Random rand1 = new Random();
+                int randomCard1 = rand1.nextInt(battle.initializeEHand(GiantRat).getDeckList().size());
+                Random rand2 = new Random();
+                int randomCard2 = rand2.nextInt(battle.initializeEHand(GiantRat).getDeckList().size());
+                Random rand3 = new Random();
+                int randomCard3 = rand3.nextInt(battle.initializeEHand(GiantRat).getDeckList().size());
+
+                System.out.println(GiantRat.getDeck().getCard(randomCard1).showCardDescription());
+                System.out.println(GiantRat.getDeck().getCard(randomCard2).showCardDescription());
+                System.out.println(GiantRat.getDeck().getCard("CLAW").showCardDescription());
+                System.out.println();
+                System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
+
+                //Checks for which card you would like to add
+                Scanner x2 = new Scanner(System.in);
+                    
+                String cardToAdd = x2.nextLine();
+
+                if (cardToAdd.equals("1"))
+                {
+                      Player1.getDeck().addCard(GiantRat.getDeck().getCard(randomCard1), 1);
+                } else if (cardToAdd.equals("2")) {
+                      Player1.getDeck().addCard(GiantRat.getDeck().getCard(randomCard2), 1);
+                } else if (cardToAdd.equals("3")) {
+                      Player1.getDeck().addCard(GiantRat.getDeck().getCard(randomCard3), 1);
+                } 
+                else{
+                      Player1.getDeck().addCard(GiantRat.getDeck().getCard(randomCard1), 1);
+                }
+                System.out.println();
+                System.out.println("------------------------------------------------------------------------------------------------------------");
             }
+        }
+
+
+            
 
             // Boss 2
             while (Player1.getRemainingHealth() > 0 && Mage.getRemainingHealth() > 0)

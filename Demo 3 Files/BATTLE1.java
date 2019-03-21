@@ -1,4 +1,4 @@
-package boi;
+
 
 import java.util.Random;
 

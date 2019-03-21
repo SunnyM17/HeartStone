@@ -1,3 +1,5 @@
+package boi;
+
 import java.util.Random;
 
 public class BATTLE1 {
@@ -130,6 +132,7 @@ public class BATTLE1 {
         {
             return false;
         }
+        player.setRemainingEnergy(player.getMaxEnergy());
         return true;
         
     }
@@ -172,7 +175,9 @@ public class BATTLE1 {
                           {
                                enemy.setHealth(enemy.getMaxHealth());
                           }
-                    } else {
+                    } 
+                    else 
+                    {
                           //Deals damage to player if enemy played a damage card
                           player.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
                     }
@@ -193,6 +198,7 @@ public class BATTLE1 {
       }   
       else
       {
+          enemy.setRemainingEnergy(enemy.getMaxEnergy());
           return false;
       }
         

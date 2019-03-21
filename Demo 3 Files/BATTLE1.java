@@ -1,14 +1,16 @@
+package boi;
+
 import java.util.Random;
 
 public class BATTLE1 {
     boolean victory = false;
     private int noCard = 0;
-    private Enemy enemy;
-    private Player player;
+    private Enemy enemyo;
+    private Player playero;
     public BATTLE1(Player player1, Enemy enemy1)
     {
-        enemy = new Enemy(enemy1);
-        player = new Player(player1);
+        enemyo = new Enemy(enemy1);
+        playero = new Player(player1);
         initializeOngDeckP(player1);
         initializeOngDeckE(enemy1);
         initializeEHand(enemy1);
@@ -52,7 +54,7 @@ public class BATTLE1 {
         return playerHand;
     }
     
-    public Deck initializeEHand(Enemy enemy)
+    public Deck initializeEHand(Enemy enemy1)
     {
         //Randomly selects cards to draw from player deck
         
@@ -91,7 +93,7 @@ public class BATTLE1 {
         return ongDeckE;
     }
     
-    public boolean playerTurn(String card)
+    public boolean playerTurn(String card, Player player, Enemy enemy)
     {
         if (blockTurnP % 2 == 0)
         {
@@ -136,7 +138,7 @@ public class BATTLE1 {
     
 
     
-    public boolean enemyTurn()
+    public boolean enemyTurn(Player player, Enemy enemy)
     {
         //Current "AI" just randomly selects cards from hand to play
         Random rand = new Random();

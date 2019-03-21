@@ -61,11 +61,12 @@ public class main{
         //Initializing the player
         Player Player1 = new Player(playerName);
 
-
+        int enemyHealth = 80;
+        int playerHealth = 80;
         //Player undergoes one battle against each enemy
         
 
-        while(Player1.getRemainingHealth() > 0 || GiantRat.getRemainingHealth() > 0)
+        while(playerHealth > 0 || enemyHealth > 0)
         {
             BATTLE1 battle = new BATTLE1(Player1, GiantRat);
             battle.enemyTurn(Player1, GiantRat);
@@ -99,7 +100,8 @@ public class main{
             System.out.println(Player1.getPlayerInformation());
             System.out.println(GiantRat.getEnemyInformation());
             System.out.println();
-            System.out.println(GiantRat.getRemainingHealth());
+            playerHealth = Player1.getRemainingHealth();
+            enemyHealth = GiantRat.getRemainingHealth();
             System.out.println("---------------------LOOP END------------------");
             battle.swichTurn(false, true);
             

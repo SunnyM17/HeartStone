@@ -1,5 +1,3 @@
-package boi;
-
 import java.util.Random;
 
 public class BATTLE1 {

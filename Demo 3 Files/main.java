@@ -17,7 +17,12 @@ public class main{
         while (Player1.getRemainingHealth() > 0 && enemy.getRemainingHealth() > 0)
             {
             BATTLE1 battle = new BATTLE1(Player1, enemy);
-            battle.enemyTurn(Player1, enemy);
+            while(battle.enemyTurn(Player1, enemy) == true)
+            {
+                battle.enemyTurn(Player1, enemy);
+                
+            }
+            
             System.out.println("Enemy played " + battle.initializeEHand(enemy).getCard(battle.getenemyCardIndex()).showCardDescription());
             System.out.println();
             System.out.println(Player1.getPlayerInformation());
@@ -25,7 +30,7 @@ public class main{
             System.out.println();
             System.out.println();
             System.out.println();
-            battle.swichTurn(true, false);
+            //battle.swichTurn(true, false);
             System.out.print("You have the following cards in your hand: ");
             System.out.println("Enter the name of the card to play it. |");
             for(int i = 0; i < battle.initializePHand(Player1).getDeckList().size(); i++)
@@ -50,7 +55,7 @@ public class main{
             System.out.println(enemy.getEnemyInformation());
             System.out.println();
            
-            battle.swichTurn(false, true);
+            //battle.swichTurn(false, true);
             if (enemy.getRemainingHealth() <= 0)
             {
                 Random rand1 = new Random();
@@ -62,7 +67,7 @@ public class main{
 
                 System.out.println(enemy.getDeck().getCard(randomCard1).showCardDescription());
                 System.out.println(enemy.getDeck().getCard(randomCard2).showCardDescription());
-                System.out.println(enemy.getDeck().getCard("CLAW").showCardDescription());
+                System.out.println(enemy.getDeck().getCard(randomCard3).showCardDescription());
                 System.out.println();
                 System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
 
@@ -73,14 +78,14 @@ public class main{
 
                 if (cardToAdd.equals("1"))
                 {
-                      Player1.getDeck().addCard(enemy.getDeck().getCard(randomCard1), 1);
+                      Player1.getDeck().getDeckList().add( (enemy.getDeck().getDeckList().get(randomCard1)) );
                 } else if (cardToAdd.equals("2")) {
-                      Player1.getDeck().addCard(enemy.getDeck().getCard(randomCard2), 1);
+                      Player1.getDeck().getDeckList().add( (enemy.getDeck().getDeckList().get(randomCard2)) );
                 } else if (cardToAdd.equals("3")) {
-                      Player1.getDeck().addCard(enemy.getDeck().getCard(randomCard3), 1);
+                    Player1.getDeck().getDeckList().add( (enemy.getDeck().getDeckList().get(randomCard3)) );
                 } 
                 else{
-                      Player1.getDeck().addCard(enemy.getDeck().getCard(randomCard1), 1);
+                    Player1.getDeck().getDeckList().add( (enemy.getDeck().getDeckList().get(randomCard1)) );
                 }
                 System.out.println();
                 System.out.println("------------------------------------------------------------------------------------------------------------");

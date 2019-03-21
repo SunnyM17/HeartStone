@@ -26,4 +26,5 @@ public class Enemy extends Combatant{
    {
         return (super.getName() + ": "+super.getRemainingHealth()+"/"+super.getMaxHealth()+", " + "block: "+ super.getBlock());
    }
+
 }

@@ -33,7 +33,7 @@ public class Combatant {
     setMaxEnergy(maxEnergy);
     setRemainingEnergy(maxEnergy);
     this.block = 0;
-    this.deck = deck;
+    setDeck(deck);
   }
 
   public Combatant(Combatant toCopy)
@@ -90,6 +90,10 @@ public class Combatant {
      this.remainingHealth = HP;
   }
 
+  public void setDeck(Deck deck)
+  {
+     this.deck = deck;
+  }
 
   //Accesor methods
 

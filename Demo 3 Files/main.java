@@ -10,7 +10,7 @@ import java.util.Random;
 */
 public class main{
 
-    
+
 
     public static void main(String[] args) {
          //The master deck is a collection of all the cards in the game
@@ -188,6 +188,9 @@ public class main{
             
             battle.swichTurn(false, true);
             }  
+
+        System.out.println();
+        System.out.println("Congratulations, YOU WON!");
         }
         System.out.println();
         System.out.println();

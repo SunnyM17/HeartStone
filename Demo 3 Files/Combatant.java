@@ -9,7 +9,10 @@ public class Combatant {
   private Deck deck;
 
   //Constructors
-
+  
+  /**
+  * This method creates a default Combatant object.
+  */
   public Combatant() {
 
   }
@@ -17,11 +20,11 @@ public class Combatant {
   /**
   * This method creates a Combatant object to store the individual name, max
   * and reamining health, max and remaining energy, block value, and
-  * a card deck unique to the enemy.
-  * @param enemyName The enemy name.
+  * a card deck unique to the individual.
+  * @param name The individual's name.
   * @param maxHealth A value the max and remaining health is initiated to.
   * @param maxEnergy A value the max and remaining energy is initiated to.
-  * @param enemyDeck A deck to be made into the enemy's unique deck.
+  * @param enemyDeck A deck to be made into the individual's unique deck.
   * <p>
   * <b>Note:</b> The block value is initiated to 0.
   */

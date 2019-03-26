@@ -18,7 +18,6 @@ public class GUI extends Application
         stage.show();
 
         SecondScene scene = new SecondScene(this);
-        //BattleScene scene = new BattleScene(this);
         scene.setup();
 
     

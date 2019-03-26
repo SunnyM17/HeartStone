@@ -30,7 +30,7 @@ public class BattleScene extends FirstScene
         Label playerInfo = new Label(player.getPlayerInformation());
         firstRow.getChildren().add(playerInfo); // Top Left
 
-        //firstRow.getChildren().add(); // Top Right
+        firstRow.getChildren().add(Enemy enemy = enemy.getEnemyInformation()); // Top Right
 
         TilePane secondRow = new TilePane(Orientation.HORIZONTAL);
         secondRow.setPrefRows(1);

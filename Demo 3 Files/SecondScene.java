@@ -53,12 +53,6 @@ public class SecondScene extends FirstScene {
         exit.setOnAction(qHandle);
 
         //Set's up name and starts the program.
-        
-        /*
-        BtnStartHandler sHandle = new BtnStartHandler(getGUI());
-        start.setOnAction(sHandle); 
-        */
-
         setName.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override

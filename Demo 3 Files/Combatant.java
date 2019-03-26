@@ -37,12 +37,19 @@ public class Combatant {
     this.block = 0;
     setDeck(deck);
   }
-
+  
+  /**
+  * This method creates an object that stores a copy of another Combatant.
+  * @param toCopy Copies any/all variables and attributes of the original
+  * Combatant including info on the combatant's name, max and remaining
+  * health, max and remaining energy, block value, and the card deck 
+  * unique to the combatant.
+  */
   public Combatant(Combatant toCopy)
   {
     this.name = toCopy.name;
     this.maxHealth = toCopy.maxHealth;
-    this.Health = toCopy.maxHealth;
+    this.remaingingHealth = toCopy.maxHealth;
     this.maxEnergy = toCopy.maxEnergy;
     this.remainingEnergy = toCopy.maxEnergy;
     this.block = 0;

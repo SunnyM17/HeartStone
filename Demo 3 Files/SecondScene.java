@@ -8,8 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class SecondScene extends FirstScene {
+    private Player player;
 
     public SecondScene(GUI gui) {
         super(gui);
@@ -20,15 +22,15 @@ public class SecondScene extends FirstScene {
         
 
         HBox textfield = new HBox();
-        Label name = new Label("Enter your name: ");
+        Label name = new Label("Enter your name:                                                          ");
         name.setTextFill(Color.BLACK);
+        name.setFont(Font.font(24));
 
         TextField box = new TextField();
         box.setMaxWidth(200);
-        textfield.setAlignment(Pos.CENTER);
-        name.setAlignment(Pos.CENTER_LEFT);
         textfield.getChildren().add(name);
         textfield.getChildren().add(box);
+        textfield.setAlignment(Pos.CENTER_RIGHT);
 
         HBox button = new HBox();
         Button start = new Button("Set Name!");
@@ -38,14 +40,33 @@ public class SecondScene extends FirstScene {
         button.setAlignment(Pos.BOTTOM_CENTER);
 
         StackPane pane = new StackPane();
+        pane.getChildren().add(name);
         pane.getChildren().add(button);
         pane.getChildren().add(box);
         pane.setAlignment(Pos.CENTER);
+    
 
-
+        //exits the program
         BtnQuitHandler qHandle = new BtnQuitHandler();
         exit.setOnAction(qHandle);
 
+        //Set's up name and starts the program.
+        /*
+        BtnStartHandler sHandle = new BtnStartHandler(getGUI());
+        start.setOnAction(sHandle); 
+        */
+
+        setName.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                String playerName = box.getText();
+                player.setName(playerName);     
+                BattleScene scene1 = new BattleScene(getGUI());
+                scene1.setup();
+            }
+        });
         setScene(new Scene(pane,600,600));
         display();
 

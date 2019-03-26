@@ -17,8 +17,8 @@ public class GUI extends Application
         stage.setTitle("Ascension");
         stage.show();
 
-        //SecondScene scene = new SecondScene(this);
-        BattleScene scene = new BattleScene(this);
+        SecondScene scene = new SecondScene(this);
+        //BattleScene scene = new BattleScene(this);
         scene.setup();
 
     

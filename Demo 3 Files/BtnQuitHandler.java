@@ -6,6 +6,6 @@ public class BtnQuitHandler implements EventHandler<ActionEvent>
     @Override
     public void handle(ActionEvent event)
     {
-        System.out.println("Pressed");
+        Platform.exit();
     }
 }

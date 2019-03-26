@@ -27,7 +27,7 @@ public class Combatant {
   }
   
   public Combatant (String name, int maxHealth, int maxEnergy, Deck deck){
-    this.name = name;
+    setName(name);
     setMaxHealth(maxHealth);
     setHealth(maxHealth);
     setMaxEnergy(maxEnergy);
@@ -93,6 +93,12 @@ public class Combatant {
   public void setDeck(Deck deck)
   {
      this.deck = deck;
+  }
+
+
+  public void setName(String name)
+  {
+     this.name = name;
   }
 
   //Accesor methods

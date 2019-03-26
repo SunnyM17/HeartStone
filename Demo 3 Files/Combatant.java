@@ -1,5 +1,14 @@
+/**
+* <h1>Create Combatant Status!</h1>
+* The Combatant program creates an object that is able
+* to store information on the combatant's name, max health,
+* remaining health, max energy, remaining energy,
+* block value, and card deck.
+*/
 public class Combatant {
 
+  //Instance Variables
+  
   private String name;
   private int maxHealth;
   private int maxEnergy;
@@ -8,24 +17,26 @@ public class Combatant {
   private int block;
   private Deck deck;
 
-  //Constructor
-
+  //Constructors
+  
   /**
-  * This method creates an Enemy object to store the enemy name, max
-  * and reamining health, max and remaining energy, block value, and
-  * a card deck unique to the enemy.
-  * @param enemyName The enemy name.
-  * @param maxHealth A value the max and remaining health is initiated to.
-  * @param maxEnergy A value the max and remaining energy is initiated to.
-  * @param enemyDeck A deck to be made into the enemy's unique deck.
-  * <p>
-  * <b>Note:</b> The block value is initiated to 0.
+  * This method creates a default Combatant object.
   */
-
   public Combatant() {
 
   }
   
+  /**
+  * This method creates a Combatant object to store the individual name, max
+  * and reamining health, max and remaining energy, block value, and
+  * a card deck unique to the individual.
+  * @param name The individual's name.
+  * @param maxHealth A value the max and remaining health is initiated to.
+  * @param maxEnergy A value the max and remaining energy is initiated to.
+  * @param enemyDeck A deck to be made into the individual's unique deck.
+  * <p>
+  * <b>Note:</b> The block value is initiated to 0.
+  */
   public Combatant (String name, int maxHealth, int maxEnergy, Deck deck){
     setName(name);
     setMaxHealth(maxHealth);
@@ -35,14 +46,21 @@ public class Combatant {
     this.block = 0;
     setDeck(deck);
   }
-
+  
+  /**
+  * This method creates an object that stores a copy of another Combatant.
+  * @param toCopy Copies any/all variables and attributes of the original
+  * Combatant including info on the combatant's name, max and remaining
+  * health, max and remaining energy, block value, and the card deck 
+  * unique to the combatant.
+  */
   public Combatant(Combatant toCopy)
   {
     this.name = toCopy.name;
     this.maxHealth = toCopy.maxHealth;
-    this.remainingHealth = toCopy.maxHealth;
+    this.remaingingHealth = toCopy.remainingHealth;
     this.maxEnergy = toCopy.maxEnergy;
-    this.remainingEnergy = toCopy.maxEnergy;
+    this.remainingEnergy = toCopy.remainingEnergy;
     this.block = 0;
     this.deck = toCopy.deck;
   }

@@ -8,10 +8,14 @@ public class Combatant {
   private int block;
   private Deck deck;
 
-  //Constructor
+  //Constructors
 
+  public Combatant() {
+
+  }
+  
   /**
-  * This method creates an Enemy object to store the enemy name, max
+  * This method creates a Combatant object to store the individual name, max
   * and reamining health, max and remaining energy, block value, and
   * a card deck unique to the enemy.
   * @param enemyName The enemy name.
@@ -21,11 +25,6 @@ public class Combatant {
   * <p>
   * <b>Note:</b> The block value is initiated to 0.
   */
-
-  public Combatant() {
-
-  }
-  
   public Combatant (String name, int maxHealth, int maxEnergy, Deck deck){
     setName(name);
     setMaxHealth(maxHealth);
@@ -40,7 +39,7 @@ public class Combatant {
   {
     this.name = toCopy.name;
     this.maxHealth = toCopy.maxHealth;
-    this.remainingHealth = toCopy.maxHealth;
+    this.Health = toCopy.maxHealth;
     this.maxEnergy = toCopy.maxEnergy;
     this.remainingEnergy = toCopy.maxEnergy;
     this.block = 0;

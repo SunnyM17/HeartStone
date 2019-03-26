@@ -27,6 +27,7 @@ public abstract class FirstScene
         return gui;
     }
 
+
     public abstract void setup();
 
     protected void display()

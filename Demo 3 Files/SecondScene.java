@@ -12,11 +12,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class SecondScene extends FirstScene {
-    private Player player;
-
+    
     public SecondScene(GUI gui) {
         super(gui);
     }
+
+
 
     @Override
     public void setup() {
@@ -62,10 +63,10 @@ public class SecondScene extends FirstScene {
             @Override
             public void handle(ActionEvent event)
             {
-                String playerName = box.getText();
-                player.setName(playerName);     
-                BattleScene scene1 = new BattleScene(getGUI());
+                String playerName = box.getText();    
+                BattleScene scene1 = new BattleScene(getGUI(), playerName);
                 scene1.setup();
+                
             }
         });
         setScene(new Scene(pane,600,600));

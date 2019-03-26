@@ -6,10 +6,13 @@ import javafx.scene.control.*;
 
 public class BattleScene extends FirstScene
 {
-    private Combatant player;
-    public BattleScene(GUI gui)
+    
+    private Player player = new Player();
+    private String playerName;
+    public BattleScene(GUI gui, String name)
     {
         super(gui);
+        this.playerName = name;
     }
 
     @Override
@@ -17,10 +20,10 @@ public class BattleScene extends FirstScene
     {
         TilePane root = new TilePane(Orientation.VERTICAL);
         root.setPrefRows(2);
-        Label name = new Label("Player information: " + player.getName() );
+        Label name = new Label("Player information: " + playerName);
         root.getChildren().add(name);
 
-        setScene(new Scene(root, 600,600));
+        setScene(new Scene(root, 1000,900));
         display();
 
 

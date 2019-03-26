@@ -1,5 +1,14 @@
+/**
+* <h1>Create Combatant Status!</h1>
+* The Combatant program creates an object that is able
+* to store information on the combatant's name, max health,
+* remaining health, max energy, remaining energy,
+* block value, and card deck.
+*/
 public class Combatant {
 
+  //Instance Variables
+  
   private String name;
   private int maxHealth;
   private int maxEnergy;

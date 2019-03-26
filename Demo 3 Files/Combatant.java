@@ -7,6 +7,7 @@
 */
 public class Combatant {
 
+  
   //Instance Variables
   
   private String name;
@@ -17,6 +18,7 @@ public class Combatant {
   private int block;
   private Deck deck;
 
+  
   //Constructors
   
   /**
@@ -65,25 +67,30 @@ public class Combatant {
     this.deck = toCopy.deck;
   }
   
+  
   // Setter Methods
-
+  
   /**
-  * Sets a new current block value for the enemy.
+  * Sets a new remaining energy value for the combatant.
+  * @param energyValue A value to update the remaining energy value.
+  */
+  public void setRemainingEnergy(int energyValue)
+  {
+       this.remainingEnergy = energyValue;
+  }
+  
+  /**
+  * Sets a new current block value for the combatant.
   * @param blockValue A value to update the block value.
   */
-  public void setRemainingEnergy(int amount)
-  {
-       remainingEnergy = amount;
-  }
-
   public void setBlock(int blockValue)
   {
       this.block = blockValue;
   }
 
   /**
-  * Sets a new max energy value for the enemy.
-  * @param energyValue A value to update the max energy.
+  * Sets a new max energy value for the combatant.
+  * @param maxEn A value to update the max energy.
   */
   public void setMaxEnergy(int maxEn)
   {
@@ -91,7 +98,7 @@ public class Combatant {
   }
 
   /**
-  * Sets a new max health value for the enemy.
+  * Sets a new max health value for the combatant.
   * @param maxHP A value to update the max health.
   */
   public void setMaxHealth(int maxHP)
@@ -100,31 +107,38 @@ public class Combatant {
   }
 
   /**
-  * Sets a new health value for the enemy.
-  * @param healthValue A value to update health.
+  * Sets a new current health value for the combatant.
+  * @param HP A value to update the current health.
   */
   public void setHealth(int HP)
   {
      this.remainingHealth = HP;
   }
-
+  
+  /**
+  * Sets a new deck for the combatant.
+  * @param deck A new deck to replace the combatant's deck.
+  */
   public void setDeck(Deck deck)
   {
      this.deck = deck;
   }
 
-
+  /**
+  * Sets a new name for the combatant.
+  * @param name A new name for the combatant.
+  */
   public void setName(String name)
   {
      this.name = name;
   }
 
+  
   //Accesor methods
 
-
   /**
-  * A method to obtain the enemy name.
-  * @return String This returns the enemy's name.
+  * A method to obtain the combatant's name.
+  * @return String This returns the combatant's name.
   */
   public String getName()
   {
@@ -133,7 +147,7 @@ public class Combatant {
 
   /**
   * A method to obtain remaining health value.
-  * @return int This returns the enemy's remaining health.
+  * @return int This returns the combatant's remaining health.
   */
   public int getRemainingHealth()
   {
@@ -142,7 +156,7 @@ public class Combatant {
 
   /**
   * A method to obtain remaining energy value.
-  * @return int This returns the enemy's remaining energy.
+  * @return int This returns the combatant's remaining energy.
   */
   public int getRemainingEnergy()
   {
@@ -151,7 +165,7 @@ public class Combatant {
 
   /**
   * A method to obtain max health value.
-  * @return int This returns the enemy's max health.
+  * @return int This returns the combatant's max health.
   */
   public int getMaxHealth()
   {
@@ -160,7 +174,7 @@ public class Combatant {
 
   /**
   * A method to obtain max energy value.
-  * @return int This returns the enemy's max energy.
+  * @return int This returns the combatant's max energy.
   */
   public int getMaxEnergy()
   {
@@ -169,7 +183,7 @@ public class Combatant {
 
   /**
   * A method to obtain remaining block value.
-  * @return int This returns the enemy's remaining block.
+  * @return int This returns the combatant's remaining block.
   */
   public int getBlock()
   {
@@ -189,7 +203,10 @@ public class Combatant {
   //Mutator Methods
 
   /**
-  * Sets a new remaining health value for the enemy.
+  * Sets a new remaining health value for the combatant if
+  * the block value is not enough to completely block the
+  * damage taken. Or if the damage value is below zero, then
+  * the combatant is healed by that vlaue.
   * @param amount A value to update remaining health.
   */
   public void altHealth(int amount)
@@ -213,7 +230,7 @@ public class Combatant {
   }
 
   /**
-  * Sets a new remaining energy value for the enemy.
+  * Sets a new remaining energy value for the combatant.
   * @param amount A value to update remaining energy.
   */
   public void altEnergy(int amount)
@@ -222,18 +239,20 @@ public class Combatant {
   }
 
   /**
-  * Sets a new remaining block value for the enemy.
-  * @param amount A value to update remaining block.
+  * Sets a new remaining block value for the combatant if 
+  * the current block value is below 30.
+  * @param amount A value to update remaining block if the
+  * block value is below 30.
   */
   public void altBlock(int amount)
   {
-    if ((block + amount) <= 10)
+    if ((block + amount) <= 30)
     {
        block += amount;
     }
-    if ((block + amount) > 10)
+    if ((block + amount) > 30)
     {
-      block = 10;
+      block = 30;
     }
   }
 }

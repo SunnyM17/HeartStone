@@ -77,19 +77,19 @@ public class CombatantTest
             assertEquals("The remaining energy value expected was", 0, c.getRemainingEnergy(), 0.00001);
       }
       @Test
-      public void test_altBlock_has5BlockGains6Block()
+      public void test_altBlock_has25BlockGains6Block()
       {
             Combatant c = new Combatant();
-            c.setBlock(5);
+            c.setBlock(25);
             c.altBlock(6);
-            assertEquals("The block value expected was", 10, c.getBlock(), 0.00001);
+            assertEquals("The block value expected was", 30, c.getBlock(), 0.00001);
       }
       @Test
-      public void test_altBlock_has5BlockGains5Block()
+      public void test_altBlock_has25BlockGains5Block()
       {
             Combatant c = new Combatant();
-            c.setBlock(5);
+            c.setBlock(25);
             c.altBlock(5);
-            assertEquals("The block value expected was", 10, c.getBlock(), 0.00001);
+            assertEquals("The block value expected was", 30, c.getBlock(), 0.00001);
       }
 }

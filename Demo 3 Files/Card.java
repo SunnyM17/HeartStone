@@ -16,7 +16,7 @@ public class Card {
   private int blockValue;
 
 
-  //Constructor
+  //Constructors
   /**
   * This method creates a empty default Card object.
   */
@@ -126,7 +126,7 @@ public class Card {
 
   /**
   * A method to obtain all the information on the card. Such as the
-  * card name, energy cost, damage value, block value, and draw value.
+  * card name, energy cost, damage value, block value, and healing value.
   * @return String This returns the complete card description.
   */
   public String showCardDescription()

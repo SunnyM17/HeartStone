@@ -1,5 +1,6 @@
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.event.*;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -33,9 +34,9 @@ public class SecondScene extends FirstScene {
         textfield.setAlignment(Pos.CENTER_RIGHT);
 
         HBox button = new HBox();
-        Button start = new Button("Set Name!");
+        Button setName = new Button("Set Name!");
         Button exit = new Button("Quit");
-        button.getChildren().add(start);
+        button.getChildren().add(setName);
         button.getChildren().add(exit);
         button.setAlignment(Pos.BOTTOM_CENTER);
 

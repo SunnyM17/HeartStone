@@ -58,9 +58,9 @@ public class Combatant {
   {
     this.name = toCopy.name;
     this.maxHealth = toCopy.maxHealth;
-    this.remaingingHealth = toCopy.maxHealth;
+    this.remaingingHealth = toCopy.remainingHealth;
     this.maxEnergy = toCopy.maxEnergy;
-    this.remainingEnergy = toCopy.maxEnergy;
+    this.remainingEnergy = toCopy.remainingEnergy;
     this.block = 0;
     this.deck = toCopy.deck;
   }

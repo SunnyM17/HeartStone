@@ -167,9 +167,9 @@ public class main{
         Deck MageDeck = new Deck();
         MageDeck.addCard(masterDeck.getCard("SLASH"),3);
         MageDeck.addCard(masterDeck.getCard("GUARD"),3);
-        MageDeck.addCard(masterDeck.getCard("FIRE BALL"),3);
-        MageDeck.addCard(masterDeck.getCard("ICE BLOCK"),3);
-        MageDeck.addCard(masterDeck.getCard("HEALING WAVE"),3);
+        MageDeck.addCard(masterDeck.getCard("FIRE_BALL"),3);
+        MageDeck.addCard(masterDeck.getCard("ICE_BLOCK"),3);
+        MageDeck.addCard(masterDeck.getCard("HEALING_WAVE"),3);
 
         //Enemy Deck(Minotaur)
         Deck MinotaurDeck = new Deck();
@@ -177,7 +177,7 @@ public class main{
         MinotaurDeck.addCard(masterDeck.getCard("GUARD"),2);
         MinotaurDeck.addCard(masterDeck.getCard("STOMP"),4);
         MinotaurDeck.addCard(masterDeck.getCard("CHARGE"),2);
-        MinotaurDeck.addCard(masterDeck.getCard("THICK HIDE"),3);
+        MinotaurDeck.addCard(masterDeck.getCard("THICK_HIDE"),3);
 
         //Initializing the enemies
         Enemy GiantRat = new Enemy("Giant Rat", 45, 2, GiantRatDeck);
@@ -196,7 +196,7 @@ public class main{
         
         while (Player1.getRemainingHealth() > 0)
         {
-            startBattle(playerName,Player1, GiantRat);
+            //startBattle(playerName,Player1, GiantRat);
             startBattle(playerName, Player1, Mage);
             startBattle(playerName, Player1, Minotaur);
         }

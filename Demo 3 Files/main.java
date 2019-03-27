@@ -196,7 +196,7 @@ public class main{
         
         while (Player1.getRemainingHealth() > 0)
         {
-            //startBattle(playerName,Player1, GiantRat);
+            startBattle(playerName,Player1, GiantRat);
             startBattle(playerName, Player1, Mage);
             startBattle(playerName, Player1, Minotaur);
         }

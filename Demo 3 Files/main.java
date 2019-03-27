@@ -55,7 +55,7 @@ public class main{
             	
 	            //battle.swichTurn(true, false);
 	            System.out.print("You have the following cards in your hand: ");
-	            System.out.print("Enter the name of the card to play it. \n|");
+	            System.out.print("Enter the name of the card or a number to play it. \n|");
 	            for(int i = 0; i < battle.getPlayerHand().getDeckList().size(); i++)
 	            {
 	                System.out.print(battle.getPlayerHand().getCard(i).getCardName() + " | ");

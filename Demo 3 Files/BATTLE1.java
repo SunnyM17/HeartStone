@@ -1,5 +1,3 @@
-
-
 import java.util.Random;
 
 public class BATTLE1 {
@@ -7,18 +5,6 @@ public class BATTLE1 {
     private int noCard = 0;
     private Enemy enemyo;
     private Player playero;
-    public BATTLE1(Player player1, Enemy enemy1)
-    {
-        enemyo = new Enemy(enemy1);
-        playero = new Player(player1);
-        initializeOngDeckP(player1);
-        initializeOngDeckE(enemy1);
-        initializeEHand(enemy1);
-        initializePHand(player1);
-    }
-    
-    private int blockTurnP = 1;
-    private int blockTurnE = 1;
     
     //Ongoing Decks that will be altered as battle goes on
     private Deck ongDeckP =  new Deck();
@@ -34,21 +20,32 @@ public class BATTLE1 {
 
     //Integer that stores the index of card played during the turn from ongoing hand.
     private int indexEnemyHand;
+    private int blockEnemy = 0;
+	private int blockPlayer = 0;
+    
+    
+    public BATTLE1(Player player1, Enemy enemy1)
+    {
+        enemyo = new Enemy(enemy1);
+        playero = new Player(player1);
+        initializeOngDeckP(player1);
+        initializeOngDeckE(enemy1);
+        initializeEHand(enemy1);
+        initializePHand(player1);
+    }
     
     public Deck initializePHand(Player player)
     {
         
         //Randomly selects cards to draw from player deck
         while(playerHand.getDeckList().size() < 5)
-        {
-              
+        {           
               Random rand = new Random();
               int randomDrawP = rand.nextInt(ongDeckP.getDeckList().size());
 
               //Adds drawn cards into player's hand
               playerHand.addCard((ongDeckP.getCard(randomDrawP)), 1);
-              ongDeckP.getDeckList().remove(randomDrawP);
-              
+              ongDeckP.getDeckList().remove(randomDrawP);              
         }
         
         return playerHand;
@@ -62,13 +59,37 @@ public class BATTLE1 {
         {
               Random rand = new Random();
               int randomDrawE = rand.nextInt(ongDeckE.getDeckList().size());
-
+              
               //Adds drawn cards into enemy's hand
               enemyHand.addCard((ongDeckE.getCard(randomDrawE)), 1);
               ongDeckE.getDeckList().remove(randomDrawE);
         }
         
         return enemyHand;
+    }
+    
+    public void refreshOngDeckP()
+    {
+    	if (ongDeckP.getDeckList().size() < 5)
+        {
+          for (int i = 0; i < playerDiscard.getDeckList().size(); i++)
+          { 
+              ongDeckP.addCard((playerDiscard.getCard(i)),1);
+              playerDiscard.getDeckList().remove(i);        
+          }
+        }
+    }
+    
+    public void refreshOngDeckE()
+    {
+    	if (ongDeckE.getDeckList().size() < 5)
+        {
+          for (int z = 0; z < enemyDiscard.getDeckList().size(); z++)
+          {
+              ongDeckE.addCard((enemyDiscard.getCard(z)),1);
+              enemyDiscard.getDeckList().remove(z);
+          }
+        }
     }
     
     public Deck initializeOngDeckP(Player player)
@@ -93,13 +114,8 @@ public class BATTLE1 {
         return ongDeckE;
     }
     
-    public boolean playerTurn(String card, Player player, Enemy enemy)
+    public boolean playerTurn(int card, Player player, Enemy enemy)
     {
-        if (blockTurnP % 2 == 0)
-        {
-            player.setBlock(0);
-        }
-        
 
         //If the player selects a card they cannot afford to play
         if (playerHand.getCard(card).getEnergyCost() > player.getRemainingEnergy())
@@ -111,10 +127,7 @@ public class BATTLE1 {
         playerDiscard.addCard(playerHand.getCard(card), 1);
         player.altEnergy(playerHand.getCard(card).getEnergyCost());
         player.altBlock(playerHand.getCard(card).getBlockValue());
-        if (playerHand.getCard(card).getBlockValue() > 0)
-        {
-              blockTurnP += 1;
-        }
+
         if ((playerHand.getCard(card)).getDamageValue() < 0)
         {
               player.altHealth((playerHand.getCard(card)).getDamageValue());
@@ -122,18 +135,25 @@ public class BATTLE1 {
               {
                     player.setHealth(player.getMaxHealth());
               }
+              
         } else {
               enemy.altHealth((playerHand.getCard(card)).getDamageValue());
         }
-        playerHand.getDeckList().remove(playerHand.getCard(card));
-
+        playerHand.getDeckList().remove(card);
         
-        if(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0)
+        if(player.getRemainingHealth() > 0 && playerHand.getDeckList().size() > 0 && player.getRemainingEnergy() > 0 && enemy.getRemainingHealth() > 0)
         {
-            return false;
+            return true;
         }
-        player.setRemainingEnergy(player.getMaxEnergy());
-        return true;
+        else
+        {
+	        player.setRemainingEnergy(player.getMaxEnergy());
+	        if(enemy.getRemainingHealth() < 0)
+	        {
+	        	enemy.setHealth(0);
+	        }
+	        return false;
+        }
         
     }
     
@@ -147,9 +167,9 @@ public class BATTLE1 {
         //Keeps playing cards while player is not dead
         if (player.getRemainingHealth() > 0)
         {
-              while(enemyHand.getCard(cardToPlay).getEnergyCost() > (enemy.getRemainingEnergy()))
+              while( enemyHand.getCard(cardToPlay).getEnergyCost() > (enemy.getRemainingEnergy()) )
               {
-                    //Failsafe: If a card is randomly selected from the enemy's hand 999 times and the enemy still doesn't have enough energy to play the selected card, ends its turn.
+                    //Fail safe: If a card is randomly selected from the enemy's hand 999 times and the enemy still doesn't have enough energy to play the selected card, ends its turn.
                     if (noCard == 999)
                     {
                           enemy.setRemainingEnergy(0);
@@ -161,11 +181,12 @@ public class BATTLE1 {
               }
               if (noCard != 999)
               {
-                    //If the card is played alters all relavant stats by given amounts
+                    //If the card is played alters all relevant stats by given amounts
                     indexEnemyHand = cardToPlay;
                     enemyDiscard.addCard(enemyHand.getCard(cardToPlay), 1);
                     enemy.altEnergy(enemyHand.getCard(cardToPlay).getEnergyCost());
                     enemy.altBlock(enemyHand.getCard(cardToPlay).getBlockValue());
+                    
                     //Sees if enemy intends to deal damage to player or heal itself
                     if ((enemyHand.getCard(cardToPlay)).getDamageValue() < 0)
                     {
@@ -181,6 +202,7 @@ public class BATTLE1 {
                           //Deals damage to player if enemy played a damage card
                           player.altHealth((enemyHand.getCard(cardToPlay)).getDamageValue());
                     }
+                    System.out.println("Enemy played " + getEnemyHand().getCard(getenemyCardIndex()).showCardDescription());
                     enemyHand.getDeckList().remove(enemyHand.getCard(cardToPlay));
               }
               noCard = 0;
@@ -192,35 +214,64 @@ public class BATTLE1 {
               //player lost
         }
       
-      if(enemy.getRemainingHealth() > 0 && enemyHand.getDeckList().size() > 0 && enemy.getRemainingEnergy() > 0 && !victory)
+      if(enemy.getRemainingHealth() > 0 && enemyHand.getDeckList().size() > 0 && enemy.getRemainingEnergy() > 0 && !victory && player.getRemainingHealth() > 0)
       {
-          return true;
-      }   
+    	  return true;
+      }
       else
       {
           enemy.setRemainingEnergy(enemy.getMaxEnergy());
+          if(player.getRemainingHealth() < 0)
+          {
+        	  player.setHealth(0);
+          }
           return false;
       }
         
       
       
   }
-    
-    public void swichTurn(boolean turnp, boolean turne)
-    {
-        while(turnp == true && victory == false)
-        {
-            turnp = enemyTurn(playero,enemyo);
-        }
-        
-        while(turne == true && victory == false)
-        {
-            turne = playerTurn("",playero,enemyo);
-        }
-        
-        blockTurnE += 1;
-    }
 
+    public void setBlockPlayer(int amount)
+    {
+    	blockPlayer = amount;
+    }
+    
+    public void setBlockEnemy(int amount)
+    {
+    	blockEnemy = amount;
+    }
+    
+    public int getBlockPlayer()
+    {
+    	return blockPlayer;
+    }
+    
+    public int getBlockEnemy()
+    {
+    	return blockEnemy;
+    }
+    
+    public Player getPlayer()
+    {
+    	return playero;
+    }
+    
+    public Enemy getEnemy()
+    {
+    	return enemyo;
+    }
+    
+    public Deck getPlayerHand()
+    {
+    	return playerHand;
+    }
+    
+    public Deck getEnemyHand()
+    {
+    	return enemyHand;
+    }
+    
     public int getenemyCardIndex()
     {
         return indexEnemyHand;

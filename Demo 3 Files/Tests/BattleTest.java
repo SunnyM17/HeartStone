@@ -12,7 +12,7 @@ public class Battle1Test
       {
         p = new Player(player1);
         initializePHand(player1);
-        assertEquals("The expected size of the hand was",5,playerHand.getDeckList().size(),0.00001)
+        assertEquals("The expected size of the hand was",5,playerHand.getDeckList().size(),0.00001);
       }
 
       @Test
@@ -60,7 +60,7 @@ public class Battle1Test
         initalizeOngDeckP(player1);
         intializePHand(player1);
         e.setHealth(0);
-        assertEquals("Expected",true,playerTurn(0,p,e),0.00001)
+        assertEquals("Expected",true,playerTurn(0,p,e),0.00001);
       }
 
       @Test
@@ -71,7 +71,7 @@ public class Battle1Test
         initializeOngDeckE(enemy1);
         initializeEHand(enemy1);
         initalizeOngDeckP(player1);
-        assertEquals("Expected",false,playerTurn(0,p,e),0.00001)
+        assertEquals("Expected",false,playerTurn(0,p,e),0.00001);
       }
 
       @Test
@@ -83,7 +83,7 @@ public class Battle1Test
         initializeEHand(enemy1);
         initalizeOngDeckP(player1);
         intializePHand(player1);
-        assertEquals("Expected",true,playerTurn(0,p,e),0.00001)
+        assertEquals("Expected",true,playerTurn(0,p,e),0.00001);
       }
 
       @Test
@@ -100,7 +100,7 @@ public class Battle1Test
       }
 
       @Test
-      public void test_enemyTurnDeadE()
+      public void test_enemyTurnDeadP()
       {
         p = new Player(player1);
         e = new Enemy(enemy1);
@@ -109,7 +109,7 @@ public class Battle1Test
         initalizeOngDeckP(player1);
         intializePHand(player1);
         p.setHealth(0);
-        assertEquals("Expected",false,enemyTurn(p,e),0.00001)
+        assertEquals("Expected",false,enemyTurn(p,e),0.00001);
       }
 
       @Test
@@ -121,7 +121,7 @@ public class Battle1Test
         initializeEHand(enemy1);
         initalizeOngDeckP(player1);
         intializePHand(player1);
-        assertEquals("Expected",true,enemyTurn(p,e),0.00001)
+        assertEquals("Expected",true,enemyTurn(p,e),0.00001);
       }
 
       @Test
@@ -135,6 +135,42 @@ public class Battle1Test
         intializePHand(player1);
         e.setRemainingEnergy(0);
         assertEquals("Expected",false,enemyTurn(p,e),0.00001);
+      }
+
+      @Test
+      public void test_initOngDeckP()
+      {
+        p = new Player(player1);
+        initalizeOngDeckP(player1);
+        boolean n = ongDeckP.equals(p.getDecK());
+        assertEquals("Expected ongoing deck to have the same contents as player starter deck",true,n,0.00001);
+      }
+
+      @Test
+      public void test_initOngDeckE()
+      {
+        e = new Enemy(enemy1);
+        initalizeOngDeckE(enemy1);
+        boolean n = ongDeckE.equals(e.getDecK());
+        assertEquals("Expected ongoing deck to have the same contents as enemy starter deck",true,n,0.00001);
+      }
+
+      @Test
+      public void test_refreshPOngDeck()
+      {
+        p = new Player(player1);
+        initalizeOngDeckP(player1);
+        refreshOngDeckP();
+        assertEquals("Expected size of the refreshed deck",5,p.ongDeckP.getDeckList.size(),0.00001);
+      }
+
+      @Test
+      public void test_refreshEOngDeck()
+      {
+        e = new Enemy(enemy1);
+        initalizeOngDeckE(enemy1);
+        refreshOngDeckE();
+        assertEquals("Expected size of the refreshed deck",5,e.ongDeckE.getDeckList.size(),0.00001);
       }
 }
 

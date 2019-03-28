@@ -64,7 +64,7 @@ public class Battle1Test
       }
       
       @Test
-      public void test test_turnEmptyDeck()
+      public void test_turnEmptyDeck()
       {
         p = new Player(player1);
         e = new Enemy(enemy1);

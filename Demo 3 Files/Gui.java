@@ -1,5 +1,3 @@
-package boi;
-
 import java.util.Scanner;
 
 import javafx.application.Application;

@@ -49,7 +49,7 @@ public class Battle1Test
         p.setHealth(0);
         assertEquals("Expected",false,playerTurn(0,p,e),0.00001);
       }
-      
+
       @Test
       public void test_playerTurnDeadE()
       {
@@ -62,7 +62,7 @@ public class Battle1Test
         e.setHealth(0);
         assertEquals("Expected",true,playerTurn(0,p,e),0.00001)
       }
-      
+
       @Test
       public void test_turnEmptyDeck()
       {
@@ -74,8 +74,68 @@ public class Battle1Test
         assertEquals("Expected",false,playerTurn(0,p,e),0.00001)
       }
 
-      @Test 
-      
+      @Test
+      public void test_IdealPturn()
+      {
+        p = new Player(player1);
+        e = new Enemy(enemy1);
+        initializeOngDeckE(enemy1);
+        initializeEHand(enemy1);
+        initalizeOngDeckP(player1);
+        intializePHand(player1);
+        assertEquals("Expected",true,playerTurn(0,p,e),0.00001)
+      }
+
+      @Test
+      public void test_enemyTurnNoHP()
+      {
+        p = new Player(player1);
+        e = new Enemy(enemy1);
+        initializeOngDeckE(enemy1);
+        initializeEHand(enemy1);
+        initalizeOngDeckP(player1);
+        intializePHand(player1);
+        e.setHealth(0);
+        assertEquals("Expected",false,enemyTurn(p,e),0.00001);
+      }
+
+      @Test
+      public void test_enemyTurnDeadE()
+      {
+        p = new Player(player1);
+        e = new Enemy(enemy1);
+        initializeOngDeckE(enemy1);
+        initializeEHand(enemy1);
+        initalizeOngDeckP(player1);
+        intializePHand(player1);
+        p.setHealth(0);
+        assertEquals("Expected",false,enemyTurn(p,e),0.00001)
+      }
+
+      @Test
+      public void test_IdealEturn()
+      {
+        p = new Player(player1);
+        e = new Enemy(enemy1);
+        initializeOngDeckE(enemy1);
+        initializeEHand(enemy1);
+        initalizeOngDeckP(player1);
+        intializePHand(player1);
+        assertEquals("Expected",true,enemyTurn(p,e),0.00001)
+      }
+
+      @Test
+      public void test_enemyTurnNoEnergy()
+      {
+        p = new Player(player1);
+        e = new Enemy(enemy1);
+        initializeOngDeckE(enemy1);
+        initializeEHand(enemy1);
+        initalizeOngDeckP(player1);
+        intializePHand(player1);
+        e.setRemainingEnergy(0);
+        assertEquals("Expected",false,enemyTurn(p,e),0.00001);
+      }
 }
 
 

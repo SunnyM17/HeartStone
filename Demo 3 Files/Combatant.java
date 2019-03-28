@@ -95,6 +95,11 @@ public class Combatant {
      this.deck = deck;
   }
 
+  public void setName(String name)
+  {
+	  this.name = name;
+  }
+  
   //Accesor methods
 
 

@@ -8,12 +8,15 @@ public class BattleScene extends FirstScene
     
     
     private String playerName;
-    private Player player = new Player();
+    private Player player;
+    private Enemy enemy;
     
-    public BattleScene(GUI gui, String name)
+    public BattleScene(GUI gui, String name, Player player, Enemy enemy)
     {
         super(gui);
         this.playerName = name;
+        this.player = new Player(player);
+        this.enemy = new Enemy(enemy);
     }
 
     
@@ -28,9 +31,10 @@ public class BattleScene extends FirstScene
         TilePane firstRow = new TilePane(Orientation.HORIZONTAL);
         firstRow.setPrefRows(2);
         Label playerInfo = new Label(player.getPlayerInformation());
+        Label enemyInfo = new Label(enemy.getEnemyInformation());
         firstRow.getChildren().add(playerInfo); // Top Left
 
-        firstRow.getChildren().add(Enemy enemy = enemy.getEnemyInformation()); // Top Right
+        firstRow.getChildren().add(enemyInfo); // Top Right
 
         TilePane secondRow = new TilePane(Orientation.HORIZONTAL);
         secondRow.setPrefRows(1);

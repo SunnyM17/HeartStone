@@ -1,6 +1,9 @@
-import java.util.Random;
 
-public class BATTLE1 {
+import java.util.Random;
+import java.util.Scanner;
+
+public class BATTLE1 
+{
     boolean victory = false;
     private int noCard = 0;
     private Enemy enemyo;
@@ -26,8 +29,6 @@ public class BATTLE1 {
     
     public BATTLE1(Player player1, Enemy enemy1)
     {
-        enemyo = new Enemy(enemy1);
-        playero = new Player(player1);
         initializeOngDeckP(player1);
         initializeOngDeckE(enemy1);
         initializeEHand(enemy1);
@@ -112,6 +113,16 @@ public class BATTLE1 {
         }
         
         return ongDeckE;
+    }
+    
+    public Deck getEnemyDiscard()
+    {
+    	return enemyDiscard;
+    }
+    
+    public Deck getPlayerDiscard()
+    {
+    	return playerDiscard;
     }
     
     public boolean playerTurn(int card, Player player, Enemy enemy)
@@ -231,6 +242,133 @@ public class BATTLE1 {
       
       
   }
+    
+    public void startBattle(String playerName, Player Player1, Enemy enemy)
+    {	
+    	boolean b = true;
+        Scanner keyboard = new Scanner(System.in);
+        while (Player1.getRemainingHealth() > 0 && enemy.getRemainingHealth() > 0)
+        {		
+            while(b)
+            {
+            	b = enemyTurn(Player1, enemy);   
+	            System.out.println();
+	            System.out.println(Player1.getPlayerInformation());
+	            System.out.println(enemy.getEnemyInformation());
+	            System.out.println();
+	            System.out.println();
+	            System.out.println();	            
+            }
+            
+            refreshOngDeckE();
+            initializeEHand(enemy);
+            
+            if(Player1.getRemainingHealth() > 0)
+            {
+            	b = true;
+            }
+            
+            if (getBlockPlayer() == 1)
+        	{
+        		Player1.setBlock(0);
+        		setBlockPlayer(0);
+        	}
+            
+            if (enemy.getBlock() > 0)
+        	{
+        		setBlockEnemy(1);
+        	}
+            
+            while(b)
+            {
+            	
+	            //battle.swichTurn(true, false);
+	            System.out.print("You have the following cards in your hand: ");
+	            System.out.print("Enter the name of the card or a number to play it. \n|");
+	            for(int i = 0; i < getPlayerHand().getDeckList().size(); i++)
+	            {
+	                System.out.print(getPlayerHand().getCard(i).getCardName() + " | ");
+	            }
+	            System.out.println();
+	            String card = keyboard.nextLine().toUpperCase();
+	            int cardToPlay = 0;
+	            for(int r = 1; r <= getPlayerHand().getDeckList().size(); r++)
+	            {
+	                if( card.equals("" + r) || card.equals(getPlayerHand().getCard(r-1).getCardName()) )
+	                {
+	                    cardToPlay = (r-1);	                    
+	                    break;
+	                }
+	            }
+	            
+	            System.out.println(playerName + " played " + getPlayerHand().getCard(cardToPlay).showCardDescription());
+	            b = playerTurn(cardToPlay, Player1, enemy);
+	            
+            	
+	            System.out.println();
+	            System.out.println(Player1.getPlayerInformation());
+	            System.out.println(enemy.getEnemyInformation());
+	            System.out.println();
+            }
+            
+            refreshOngDeckP();
+            initializePHand(Player1);
+            
+            if (getBlockEnemy() == 1)
+        	{
+        		enemy.setBlock(0);
+        		setBlockEnemy(0);
+        	}
+        	
+            if (Player1.getBlock() > 0)
+        	{
+        		setBlockPlayer(1);
+        	}
+            
+            if(enemy.getRemainingHealth() > 0)
+            {
+            	b = true;
+            }
+            
+            if (enemy.getRemainingHealth() <= 0)
+            {
+                Random rand1 = new Random();
+                int randomCard1 = rand1.nextInt(enemy.getDeck().getDeckList().size());
+                Random rand2 = new Random();
+                int randomCard2 = rand2.nextInt(enemy.getDeck().getDeckList().size());
+                Random rand3 = new Random();
+                int randomCard3 = rand3.nextInt(enemy.getDeck().getDeckList().size());
+
+                System.out.println(enemy.getDeck().getCard(randomCard1).showCardDescription());
+                System.out.println(enemy.getDeck().getCard(randomCard2).showCardDescription());
+                System.out.println(enemy.getDeck().getCard(randomCard3).showCardDescription());
+                System.out.println();
+                System.out.println("Select a new card to add to your deck (1, 2 or 3 - if an invalid command is input, the first card will be selected.)");
+
+                //Checks for which card you would like to add
+                Scanner x2 = new Scanner(System.in);
+                    
+                String cardToAdd = x2.nextLine();
+
+                if (cardToAdd.equals("1"))
+                {
+                      Player1.getDeck().getDeckList().add( (enemy.getDeck().getDeckList().get(randomCard1)) );
+                } else if (cardToAdd.equals("2")) {
+                      Player1.getDeck().getDeckList().add( (enemy.getDeck().getDeckList().get(randomCard2)) );
+                } else if (cardToAdd.equals("3")) {
+                    Player1.getDeck().getDeckList().add( (enemy.getDeck().getDeckList().get(randomCard3)) );
+                } 
+                else{
+                    Player1.getDeck().getDeckList().add( (enemy.getDeck().getDeckList().get(randomCard1)) );
+                }
+                System.out.println();
+                System.out.println("------------------------------------------------------------------------------------------------------------");
+            }
+        }
+        
+    }
+
+
 
     public void setBlockPlayer(int amount)
     {

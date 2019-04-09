@@ -5,7 +5,8 @@
 * remaining health, max energy, remaining energy,
 * block value, and card deck for the combatant.
 */
-public class Combatant {
+public class Combatant 
+{
 
   private String name;
   private int maxHealth;
@@ -21,7 +22,8 @@ public class Combatant {
   /**
   * This method creates an empty Combatant object.
   */
-  public Combatant() {
+  public Combatant() 
+  {
   }
   
   /**
@@ -35,7 +37,8 @@ public class Combatant {
   * <p>
   * <b>Note:</b> The block value is initiated to 0.
   */
-  public Combatant (String name, int maxHealth, int maxEnergy, Deck deck){
+  public Combatant (String name, int maxHealth, int maxEnergy, Deck deck)
+  {
     this.name = name;
     setMaxHealth(maxHealth);
     setHealth(maxHealth);
@@ -235,14 +238,13 @@ public class Combatant {
   */
   public void altBlock(int amount)
   {
-    if ((block + amount) <= 30)
-    {
-       block += amount;
-    }
-    else
-	    if ((block + amount) > 30)
-	    {
-	      block = 30;
-	    }
-  	}
+      if ((block + amount) <= 30)
+      {
+          block += amount;
+      } 
+      else if ((block + amount) > 30)
+      {
+          block = 30;
+      }
+  }
 }

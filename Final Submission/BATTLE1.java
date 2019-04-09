@@ -128,6 +128,7 @@ public class BATTLE1
     * Creates ongoing deck for player. Has the same cards as the 
     * player's starting deck.
     * @param player The player whos starter deck will be copied.
+    * @return Deck The player's ongoing deck.
     */
     public Deck initializeOngDeckP(Player player)
     {
@@ -143,6 +144,7 @@ public class BATTLE1
     * Creates ongoing deck for enemy. Has the same cards as the 
     * enemy's starting deck.
     * @param enemy The enemy whos starter deck will be copied.
+    * @return Deck The enemy's ongoing deck.
     */
     public Deck initializeOngDeckE(Enemy enemy)
     {
@@ -173,10 +175,14 @@ public class BATTLE1
     }
     
     /**
-    * A method for when it is the player's turn to play cards.
+    * A method for when it is the player's turn to play cards. When a
+    * card is played, the statuses of the affected combatant will
+    * be altered. If the card selected requires more energy than is
+    * available, nothing happens.
     * @param card The card the player has chosen to play.
     * @param player The player in the fight.
     * @param enemy The enemy in the fight.
+    * @return boolean Returns false if enemy's health reaches 0.
     */
     public boolean playerTurn(int card, Player player, Enemy enemy)
     {
@@ -220,8 +226,16 @@ public class BATTLE1
         }
     }
     
-
-    
+    /**
+    * A method for when it is the enemy's turn to play cards. The enemy
+    * randomly chooses a card from hand. The card will be played if
+    * player and enemy health is above 0 and if energy is sufficient to
+    * cover the cost of the card. When a card is played, the statuses 
+    * of the affected combatant will be altered.
+    * @param player The player in the fight.
+    * @param enemy The enemy in the fight.
+    * @return boolean Returns false when player's health reaches 0.
+    */
     public boolean enemyTurn(Player player, Enemy enemy)
     {
         //Current "AI" just randomly selects cards from hand to play
@@ -289,12 +303,20 @@ public class BATTLE1
         	  player.setHealth(0);
           }
           return false;
-      }
-        
-      
-      
+      } 
   }
-    
+	
+    /**
+    * A method to start the battle between the player and the enemy.
+    * The battle continues until either the player or the enemy's health
+    * drops to 0. If the player wins the battle, they get to choose 1 out
+    * of 3 cards that are randomly choosen from the defeated enemy's deck
+    * to add to the player's deck. If no card is choosen by the player,
+    * the first random card will be added to the player deck.
+    * @param playerName The player's name.
+    * @param Player1 The player that is fighting.
+    * @param enemy The enemy that is fighting.
+    */
     public void startBattle(String playerName, Player Player1, Enemy enemy)
     {	
     	boolean b = true;
@@ -420,51 +442,86 @@ public class BATTLE1
         
     }
 
-
-
+    /**
+    * Sets a new current block value for the player.
+    * @param amount A value to update the block value.
+    */
     public void setBlockPlayer(int amount)
     {
     	blockPlayer = amount;
     }
     
+    /**
+    * Sets a new current block value for the enemy.
+    * @param amount A value to update the block value.
+    */
     public void setBlockEnemy(int amount)
     {
     	blockEnemy = amount;
     }
     
+    /**
+    * A method to obtain the current block value of the player.
+    * @return int This returns the player's remaining block.
+    */
     public int getBlockPlayer()
     {
     	return blockPlayer;
     }
     
+    /**
+    * A method to obtain the current block value of the enemy.
+    * @return int This returns the enemy's remaining block.
+    */
     public int getBlockEnemy()
     {
     	return blockEnemy;
     }
     
+    /**
+    * A method to obtain the current player.
+    * @return Player The player.
+    */
     public Player getPlayer()
     {
     	return playero;
     }
     
+    /**
+    * A method to obtain the current enemy.
+    * @return Enemy The enemy.
+    */
     public Enemy getEnemy()
     {
     	return enemyo;
     }
     
+    /**
+    * A method to obtain the player's current deck on hand.
+    * @return Deck The deck with player's hand.
+    */
     public Deck getPlayerHand()
     {
     	return playerHand;
     }
     
+    /**
+    * A method to obtain the enemy's current deck on hand.
+    * @return Deck The deck with enemy's hand.
+    */
     public Deck getEnemyHand()
     {
     	return enemyHand;
     }
     
+    /**
+    * A method to obtain the deck index number for the 
+    * enemy's hand.
+    * @return int A number that will act as the index to find
+    * the card in the enemy's hand deck.
+    */
     public int getenemyCardIndex()
     {
         return indexEnemyHand;
-    }
-    
+    }   
 }

@@ -1,3 +1,10 @@
+/**
+* <h1>Create Combatant Status!</h1>
+* The Combatant program creates an object that is able
+* to store information on the name, max health,
+* remaining health, max energy, remaining energy,
+* block value, and card deck for the combatant.
+*/
 public class Combatant {
 
   private String name;
@@ -8,24 +15,23 @@ public class Combatant {
   private int block;
   private Deck deck;
 
+	
   //Constructor
 
+  public Combatant() {
+  }
+  
   /**
-  * This method creates an Enemy object to store the enemy name, max
+  * This method creates a Combatant object to store the name, max
   * and reamining health, max and remaining energy, block value, and
-  * a card deck unique to the enemy.
-  * @param enemyName The enemy name.
+  * a card deck unique to the combatant.
+  * @param name The combatant name.
   * @param maxHealth A value the max and remaining health is initiated to.
   * @param maxEnergy A value the max and remaining energy is initiated to.
-  * @param enemyDeck A deck to be made into the enemy's unique deck.
+  * @param deck A deck to be made into the combatant's unique deck.
   * <p>
   * <b>Note:</b> The block value is initiated to 0.
   */
-
-  public Combatant() {
-
-  }
-  
   public Combatant (String name, int maxHealth, int maxEnergy, Deck deck){
     this.name = name;
     setMaxHealth(maxHealth);
@@ -47,25 +53,26 @@ public class Combatant {
     this.deck = toCopy.deck;
   }
   
+	
   // Setter Methods
 
-  /**
-  * Sets a new current block value for the enemy.
-  * @param blockValue A value to update the block value.
-  */
   public void setRemainingEnergy(int amount)
   {
        remainingEnergy = amount;
   }
-
+	
+  /**
+  * Sets a new current block value for the combatant.
+  * @param blockValue A value to update the block value.
+  */
   public void setBlock(int blockValue)
   {
       this.block = blockValue;
   }
 
   /**
-  * Sets a new max energy value for the enemy.
-  * @param energyValue A value to update the max energy.
+  * Sets a new max energy value for the combatant.
+  * @param maxEn A value to update the max energy.
   */
   public void setMaxEnergy(int maxEn)
   {
@@ -73,7 +80,7 @@ public class Combatant {
   }
 
   /**
-  * Sets a new max health value for the enemy.
+  * Sets a new max health value for the combatant.
   * @param maxHP A value to update the max health.
   */
   public void setMaxHealth(int maxHP)
@@ -82,8 +89,8 @@ public class Combatant {
   }
 
   /**
-  * Sets a new health value for the enemy.
-  * @param healthValue A value to update health.
+  * Sets a new health value for the combatant.
+  * @param HP A value to update health.
   */
   public void setHealth(int HP)
   {
@@ -100,12 +107,12 @@ public class Combatant {
 	  this.name = name;
   }
   
+	
   //Accesor methods
 
-
   /**
-  * A method to obtain the enemy name.
-  * @return String This returns the enemy's name.
+  * A method to obtain the combatant name.
+  * @return String This returns the combatant's name.
   */
   public String getName()
   {
@@ -114,7 +121,7 @@ public class Combatant {
 
   /**
   * A method to obtain remaining health value.
-  * @return int This returns the enemy's remaining health.
+  * @return int This returns the combatant's remaining health.
   */
   public int getRemainingHealth()
   {
@@ -123,7 +130,7 @@ public class Combatant {
 
   /**
   * A method to obtain remaining energy value.
-  * @return int This returns the enemy's remaining energy.
+  * @return int This returns the combatant's remaining energy.
   */
   public int getRemainingEnergy()
   {
@@ -132,7 +139,7 @@ public class Combatant {
 
   /**
   * A method to obtain max health value.
-  * @return int This returns the enemy's max health.
+  * @return int This returns the combatant's max health.
   */
   public int getMaxHealth()
   {
@@ -141,7 +148,7 @@ public class Combatant {
 
   /**
   * A method to obtain max energy value.
-  * @return int This returns the enemy's max energy.
+  * @return int This returns the combatant's max energy.
   */
   public int getMaxEnergy()
   {
@@ -150,7 +157,7 @@ public class Combatant {
 
   /**
   * A method to obtain remaining block value.
-  * @return int This returns the enemy's remaining block.
+  * @return int This returns the combatant's remaining block.
   */
   public int getBlock()
   {
@@ -170,7 +177,7 @@ public class Combatant {
   //Mutator Methods
 
   /**
-  * Sets a new remaining health value for the enemy.
+  * Sets a new remaining health value for the combatant.
   * @param amount A value to update remaining health.
   */
   public void altHealth(int amount)
@@ -194,7 +201,7 @@ public class Combatant {
   }
 
   /**
-  * Sets a new remaining energy value for the enemy.
+  * Sets a new remaining energy value for the combatant.
   * @param amount A value to update remaining energy.
   */
   public void altEnergy(int amount)
@@ -203,7 +210,7 @@ public class Combatant {
   }
 
   /**
-  * Sets a new remaining block value for the enemy.
+  * Sets a new remaining block value for the combatant.
   * @param amount A value to update remaining block.
   */
   public void altBlock(int amount)

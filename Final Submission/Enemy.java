@@ -21,7 +21,12 @@ public class Enemy extends Combatant{
    {
      super(name, maxHealth, maxEnergy, deck);
    }
-
+   
+   /**
+   * This methods creates an exact copy of the enemy object
+   * from param toCopy.
+   * @param toCopy The enemy info to copy.
+   */
    public Enemy(Enemy toCopy)
    {
        super(toCopy);

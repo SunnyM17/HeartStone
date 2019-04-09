@@ -7,6 +7,7 @@
 */
 public class Player extends Combatant {
 
+    
     //Constructors
 
     /**
@@ -16,8 +17,8 @@ public class Player extends Combatant {
     * <p>
     * <b>Note:</b> The max and remaining health is initiated to 80, the
     * max and remaining energy is initiated to 3, block value is
-    * initiated to 0, while the player deck is initiated with 5 SLASH
-    * and 5 GUARD cards.
+    * initiated to 0, while the player deck is initiated with 5 SLASH,
+    * 5 GUARD cards and 5 HEAL cards.
     */
     public Player()
     {
@@ -35,8 +36,8 @@ public class Player extends Combatant {
     * <p>
     * <b>Note:</b> The max and remaining health is initiated to 80, the
     * max and remaining energy is initiated to 3, block value is
-    * initiated to 0, while the player deck is initiated with 5 SLASH
-    * and 5 GUARD cards.
+    * initiated to 0, while the player deck is initiated with 5 SLASH,
+    * 5 GUARD cards and 5 HEAL cards.
     */
     public Player(String playerName)
     {

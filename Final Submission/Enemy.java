@@ -7,13 +7,9 @@
 */
 public class Enemy extends Combatant{
 
-   /**
-   * A method to obtain the enemy information, such as name, max and
-   * remaining health, and current block value.
-   * @return String This returns the enemy's current information.
-   */
 
-   public Enemy (String name, int maxHealth, int maxEnergy, Deck deck){
+   public Enemy (String name, int maxHealth, int maxEnergy, Deck deck)
+   {
      super(name, maxHealth, maxEnergy, deck);
    }
 
@@ -22,9 +18,13 @@ public class Enemy extends Combatant{
        super(toCopy);
    }
    
+   /**
+   * A method to obtain the enemy information, such as name, max and
+   * remaining health, and current block value.
+   * @return String This returns the enemy's current information.
+   */
    public String getEnemyInformation()
    {
         return (super.getName() + ": "+super.getRemainingHealth()+"/"+super.getMaxHealth()+", " + "block: "+ super.getBlock());
    }
-
 }

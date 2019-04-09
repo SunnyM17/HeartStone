@@ -59,15 +59,14 @@ public class Player extends Combatant {
        
     //Accesor methods
 
-       /**
-      * A method to obtain the player information, such as name, max and
-      * remaining health, current block value, as well as max and
-      * remaining energy.
-      * @return String This returns the player's current information.
-      */
-       public String getPlayerInformation()
-       {
-           return (super.getName() + ": "+super.getRemainingHealth() +"/"+super.getMaxHealth()+", " + " block: "+ super.getBlock()+"/10" + ", " + "ENERGY: " + super.getRemainingEnergy() + "/"+super.getMaxEnergy());
-       }
-
+    /**
+    * A method to obtain the player information, such as name, max and
+    * remaining health, current block value, as well as max and
+    * remaining energy.
+    * @return String This returns the player's current information.
+    */
+    public String getPlayerInformation()
+    {
+        return (super.getName() + ": "+super.getRemainingHealth() +"/"+super.getMaxHealth()+", " + " block: "+ super.getBlock()+"/10" + ", " + "ENERGY: " + super.getRemainingEnergy() + "/"+super.getMaxEnergy());
+    }
 }

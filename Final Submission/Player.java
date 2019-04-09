@@ -46,7 +46,12 @@ public class Player extends Combatant {
         super.getDeck().addCard(new Card("GUARD", 1, 0, 5),5);
         super.getDeck().addCard(new Card("HEAL", 1, -3, 0),5);
     }
-
+    
+    /**
+    * This methods creates an exact copy of the player object
+    * from param toCopy.
+    * @param toCopy The player info to copy.
+    */
     public Player(Player toCopy)
     {
         super(toCopy);

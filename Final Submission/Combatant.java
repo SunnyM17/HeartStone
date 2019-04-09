@@ -16,8 +16,11 @@ public class Combatant {
   private Deck deck;
 
 	
-  //Constructor
+  //Constructors
 
+  /**
+  * This method creates an empty Combatant object.
+  */
   public Combatant() {
   }
   
@@ -42,6 +45,11 @@ public class Combatant {
     setDeck(deck);
   }
 
+  /**
+  * This methods creates an exact copy of the combatant object
+  * from param toCopy.
+  * @param toCopy The combatant info to copy.
+  */
   public Combatant(Combatant toCopy)
   {
     this.name = toCopy.name;
@@ -56,6 +64,10 @@ public class Combatant {
 	
   // Setter Methods
 
+  /**
+  * Sets a new current energy value for the combatant.
+  * @param amount A value to update the energy value.
+  */
   public void setRemainingEnergy(int amount)
   {
        remainingEnergy = amount;
@@ -97,11 +109,19 @@ public class Combatant {
      this.remainingHealth = HP;
   }
 
+  /**
+  * Sets a new card deck for the combatant.
+  * @param deck A new unique deck for the combatant.
+  */
   public void setDeck(Deck deck)
   {
      this.deck = deck;
   }
 
+  /**
+  * Sets a new name for the combatant.
+  * @param name A new name for the combatant.
+  */
   public void setName(String name)
   {
 	  this.name = name;

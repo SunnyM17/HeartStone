@@ -124,6 +124,11 @@ public class BATTLE1
         }
     }
     
+    /**
+    * Creates ongoing deck for player. Has the same cards as the 
+    * player's starting deck.
+    * @param player The player whos starter deck will be copied.
+    */
     public Deck initializeOngDeckP(Player player)
     {
         //Copies player's starter deck into their ongoing deck
@@ -131,10 +136,14 @@ public class BATTLE1
         {
             ongDeckP.addCard(player.getDeck().getCard(x),1);
         }
-        
         return ongDeckP;
     }
     
+    /**
+    * Creates ongoing deck for enemy. Has the same cards as the 
+    * enemy's starting deck.
+    * @param enemy The enemy whos starter deck will be copied.
+    */
     public Deck initializeOngDeckE(Enemy enemy)
     {
         //Copies player's starter deck into their ongoing deck
@@ -142,20 +151,33 @@ public class BATTLE1
         {
             ongDeckE.addCard(enemy.getDeck().getCard(x),1);
         }
-        
         return ongDeckE;
     }
     
+    /**
+    * A method to obtain the enemy discard pile.
+    * @return Deck This returns the enemy's discard pile.
+    */
     public Deck getEnemyDiscard()
     {
     	return enemyDiscard;
     }
     
+    /**
+    * A method to obtain the player discard pile.
+    * @return Deck This returns the player's discard pile.
+    */
     public Deck getPlayerDiscard()
     {
     	return playerDiscard;
     }
     
+    /**
+    * A method for when it is the player's turn to play cards.
+    * @param card The card the player has chosen to play.
+    * @param player The player in the fight.
+    * @param enemy The enemy in the fight.
+    */
     public boolean playerTurn(int card, Player player, Enemy enemy)
     {
 
@@ -196,7 +218,6 @@ public class BATTLE1
 	        }
 	        return false;
         }
-        
     }
     
 

@@ -7,7 +7,16 @@
 */
 public class Enemy extends Combatant{
 
-
+   
+   //Constructor methods
+   /**
+    * This method creates an Enemy object to store the enemy name, max
+    * health, max energy, block value, and a card deck unique to the enemy.
+    * @param name The Enemy's name.
+    * @param maxHealth Sets the max health to this value.
+    * @param maxEnergy Sets the max energy to this value.
+    * @param deck Adds a deck unique to the enemy.
+    */
    public Enemy (String name, int maxHealth, int maxEnergy, Deck deck)
    {
      super(name, maxHealth, maxEnergy, deck);
@@ -18,6 +27,7 @@ public class Enemy extends Combatant{
        super(toCopy);
    }
    
+   //Accesor method
    /**
    * A method to obtain the enemy information, such as name, max and
    * remaining health, and current block value.

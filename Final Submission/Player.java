@@ -5,7 +5,8 @@
 * remaining health, max energy, remaining energy,
 * block value, and card deck for the player.
 */
-public class Player extends Combatant {
+public class Player extends Combatant 
+{
 
     
     //Constructors
@@ -57,6 +58,7 @@ public class Player extends Combatant {
         super(toCopy);
     }
        
+    
     //Accesor methods
 
     /**

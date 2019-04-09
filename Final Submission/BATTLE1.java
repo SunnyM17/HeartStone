@@ -1,7 +1,13 @@
-
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+* <h1>Battle!</h1>
+* The Battle program simulates a battle between the player and 
+* enemy. It keeps tracks both player and enemy's card decks
+* and updates their statuses accordingly as the battle goes on
+* and cards are played.
+*/
 public class BATTLE1 
 {
     boolean victory = false;
@@ -24,9 +30,16 @@ public class BATTLE1
     //Integer that stores the index of card played during the turn from ongoing hand.
     private int indexEnemyHand;
     private int blockEnemy = 0;
-	private int blockPlayer = 0;
+    private int blockPlayer = 0;
     
-    
+	
+    //Constructor method
+	
+    /**
+    * A method to begin the battle between the player and enemy.
+    * @param player1 The player to fight.
+    * @param enemy1 The enemy to fight.
+    */
     public BATTLE1(Player player1, Enemy enemy1)
     {
         initializeOngDeckP(player1);
@@ -35,6 +48,11 @@ public class BATTLE1
         initializePHand(player1);
     }
     
+    /**
+    * A method to initialize the player's hand. It takes 5 cards at 
+    * random from the player's ongoing deck and adds them to their 
+    * hand to be played. Also removes the cards from ongoing deck.
+    */
     public Deck initializePHand()
     {
         
@@ -48,14 +66,18 @@ public class BATTLE1
               playerHand.addCard((ongDeckP.getCard(randomDrawP)), 1);
               ongDeckP.getDeckList().remove(randomDrawP);              
         }
-        
         return playerHand;
     }
-    
+   	
+    /**
+    * A method to initialize the enemy's hand. It takes 5 cards at 
+    * random from the enemy's ongoing deck and adds them to their 
+    * hand to be played. Also removes the cards from ongoing deck.
+    */
     public Deck initializeEHand()
     {
-        //Randomly selects cards to draw from player deck
-        
+	    
+        //Randomly selects cards to draw from enemy's deck
         while(enemyHand.getDeckList().size() < 5)
         {
               Random rand = new Random();
@@ -65,10 +87,14 @@ public class BATTLE1
               enemyHand.addCard((ongDeckE.getCard(randomDrawE)), 1);
               ongDeckE.getDeckList().remove(randomDrawE);
         }
-        
         return enemyHand;
     }
     
+    /**
+    * Reshuffles the player's discard pile of used cards back into 
+    * their ongoing deck if the ongoing deck size is smaller than 5.
+    * Then removes all the cards in the discard pile.
+    */
     public void refreshOngDeckP()
     {
     	if (ongDeckP.getDeckList().size() < 5)
@@ -80,7 +106,12 @@ public class BATTLE1
           }
         }
     }
-    
+    	
+    /**
+    * Reshuffles the enemy's discard pile of used cards back into 
+    * their ongoing deck if the ongoing deck size is smaller than 5.
+    * Then removes all the cards in the discard pile.
+    */
     public void refreshOngDeckE()
     {
     	if (ongDeckE.getDeckList().size() < 5)

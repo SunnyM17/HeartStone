@@ -35,7 +35,7 @@ public class BATTLE1
         initializePHand(player1);
     }
     
-    public Deck initializePHand(Player player)
+    public Deck initializePHand()
     {
         
         //Randomly selects cards to draw from player deck
@@ -52,7 +52,7 @@ public class BATTLE1
         return playerHand;
     }
     
-    public Deck initializeEHand(Enemy enemy1)
+    public Deck initializeEHand()
     {
         //Randomly selects cards to draw from player deck
         

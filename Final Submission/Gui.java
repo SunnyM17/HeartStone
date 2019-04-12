@@ -20,7 +20,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import users.*;
 import utilities.*;
-import sprites.*;
 
 
 /**
@@ -450,3 +449,4 @@ public class Gui extends Application{
 	    	
     
     }
+}

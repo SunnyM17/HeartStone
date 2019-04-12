@@ -53,7 +53,7 @@ public class BATTLE1
     * random from the player's ongoing deck and adds them to their 
     * hand to be played. Also removes the cards from ongoing deck.
     */
-    public Deck initializePHand()
+    public Deck initializePHand(Player player)
     {
         
         //Randomly selects cards to draw from player deck
@@ -74,7 +74,7 @@ public class BATTLE1
     * random from the enemy's ongoing deck and adds them to their 
     * hand to be played. Also removes the cards from ongoing deck.
     */
-    public Deck initializeEHand()
+    public Deck initializeEHand(Enemy enemy)
     {
 	    
         //Randomly selects cards to draw from enemy's deck

@@ -22,8 +22,8 @@ import utilities.*;
 
 
 /**
-* <h1>Main!</h1>
-* The Main program brings together a functioning and engaging
+* <h1>Main GUI!</h1>
+* The Main GUI program brings together a functioning and engaging
 * game by utilising the methods and objects of battle, player,
 * enemy, card and deck classes.
 */
